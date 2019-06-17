@@ -1,0 +1,34 @@
+{
+  "name": "styx-web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon dist/server.bundle.js",
+    "start-gulp": "gulp",
+    "watch": "webpack --watch --mode production"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "express-handlebars": "^3.1.0",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.6",
+    "core-js": "^3.1.3",
+    "eslint": "^5.16.0",
+    "express": "^4.17.1",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.0.2",
+    "nodemon": "^1.19.1",
+    "regenerator-runtime": "^0.13.2",
+    "source-map-support": "^0.5.12",
+    "webpack": "^4.34.0",
+    "webpack-cli": "^3.3.4"
+  }
+}
