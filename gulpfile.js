@@ -6,12 +6,25 @@ const rename = require("gulp-rename")
 const concat = require("gulp-concat")
 const sourcemaps = require("gulp-sourcemaps")
 const cleanCss = require("gulp-clean-css")
-const jsMap = require("./src/front-end/jsPageMap")
-const cssMap = require("./src/front-end/cssPageMap")
-const fromNpm = require("./src/front-end/jsFilesFromNpm")
+const fs = require("fs")
 //const babel = require("gulp-babel")
 //const babelConfig = require("./babel.config")
 
+const jsMapPath = './src/front-end/js-page-map.json'
+const cssMapPath = './src/front-end/css-page-map.json'
+const fromNpmPath = './src/front-end/js-from-npm.json'
+
+let jsMap = JSON.parse(fs.readFileSync(jsMapPath, 'utf8'))
+let cssMap = JSON.parse(fs.readFileSync(cssMapPath, 'utf8'))
+let fromNpm = JSON.parse(fs.readFileSync(fromNpmPath, 'utf8'))
+
+
+const readConfig = (cb) => {
+  jsMap = JSON.parse(fs.readFileSync(jsMapPath, 'utf8'))
+  cssMap = JSON.parse(fs.readFileSync(cssMapPath, 'utf8'))
+  fromNpm = JSON.parse(fs.readFileSync(fromNpmPath, 'utf8'))
+  cb()
+}
 
 const sassFiles = ["src/front-end/scss/*.scss"]
 
@@ -36,6 +49,7 @@ const cssPackages = {
 const cssTasks = Object.keys(cssPackages).map(key => {
   const files = cssPackages[key]
   return () => {
+    console.log(cssMap)
     return src(files)
       .pipe(concat(key + "concat.css"))
       .pipe(cleanCss())
@@ -80,6 +94,6 @@ const jsTasks = Object.keys(jsPackages).map(key => {
 exports.moveJs = moveJs
 
 exports.default = () => {
-  watch(sassFiles, { ignoreInitial: false }, series(sassTask, parallel(...cssTasks)))
-  watch(jsFiles, { ignoreInitial: false }, parallel(...jsTasks))
+  watch(["src/front-end/*.json", ...sassFiles], { ignoreInitial: false }, series(readConfig, sassTask, parallel(...cssTasks)))
+  watch(["src/front-end/*.json", ...jsFiles], { ignoreInitial: false }, series(readConfig, parallel(...jsTasks)))
 }
