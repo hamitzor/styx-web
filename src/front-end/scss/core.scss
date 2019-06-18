@@ -1,11 +1,89 @@
 $theme-colors: (
-  "primary": #7800c9
+  "primary": #008cff
 );
 $body-bg: #ededed;
 
-.jumbotron {
-  background-color: #ffffff !important;
-  border-top: 3px solid rgb(219, 219, 219);
+@import "node_modules/bootstrap/scss/bootstrap";
+
+
+.border-radius-0{
+  border-radius: 0
 }
 
-@import "node_modules/bootstrap/scss/bootstrap";
+textarea{
+  resize: none
+}
+
+.dropdown-menu{
+  border-width: 0px
+}
+
+.btn{
+  &:focus{
+    box-shadow:  none!important;
+    border-color: transparent;
+  }
+
+  &:active{
+    box-shadow: none!important;
+    border-color: transparent;
+  }
+}
+
+
+.form-control {
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: map-get($grays, "300");
+    opacity: 1; /* Firefox */
+  }
+  
+  &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: map-get($grays, "300");
+  }
+  
+  &::-ms-input-placeholder { /* Microsoft Edge */
+    color: map-get($grays, "300");
+  }
+  border-color: transparent;
+  border-width: 1px;
+  border-radius: 0;
+  border-bottom-color: map-get($grays, "600");
+  &:focus{
+    box-shadow: none;
+    border-color: transparent;
+    border-bottom-color: map-get($grays, "200");
+  }
+}
+
+.jumbotron {
+  border-top: 3px solid map-get($theme-colors, "primary");
+  border-radius: 0
+}
+
+.navbar-custom {
+  background-color: #ffffff00;
+  .navbar-brand, .navbar-text{
+    color: rgb(255,255,255);
+    font-size: 1.8rem;
+    font-weight: 600
+  }
+
+  .navbar-nav{
+    .nav-link{
+      color: rgba(255,255,255,.85);
+    }
+  }
+
+  .nav-item{
+    &.active{
+      .nav-link{
+        color: #ffffff;
+      }
+    }
+    &:hover{
+      .nav-link{
+        color: #ffffff;
+      }
+    }
+  }
+}

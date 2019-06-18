@@ -1,4 +1,4 @@
-{
+module.exports = {
   "common": [
     "jquery",
     "popper",

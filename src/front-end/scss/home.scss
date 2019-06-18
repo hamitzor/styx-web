@@ -1,3 +1,46 @@
-h1{
-  font-size: 1rem
+@import "./core.scss";
+
+.header-container{
+  background-image: url("/assets/home-background.jpg");
+  background-position:50% 0px;
+  background-size: cover;
+  .black-cover{
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-bottom: 180px;
+    margin-bottom:100px;
+  }
+}
+
+.offer-form-card{
+  position: absolute;
+  z-index: 400;
+  right: 0;
+  top:150px;
+  background-color: transparent;
+  width: 450px;
+  .card-body{
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  .offer-form{
+    .dropdown{
+      width: 100%;
+      display: flex;
+      .dropdown-menu{
+        background-color: map-get($grays,"200")
+      }
+      .btn[data-toggle="dropdown"]{
+        flex:1;
+        display: block;
+        border-color: transparent;
+        border-width: 1px;
+        border-radius: 0;
+        border-bottom-color: map-get($grays, "600");
+        &:focus{
+          box-shadow: none;
+          border-color: transparent;
+          border-bottom-color: map-get($grays, "200");
+        }
+      }
+    }
+  }
 }
