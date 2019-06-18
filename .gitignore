@@ -1,6 +1,6 @@
 node_modules/**
 dist/**
-src/front-end/public/css/**
+src/front-end/public/min.css/**
 src/front-end/public/min.js/**
 yarn.lock
 .vscode/**

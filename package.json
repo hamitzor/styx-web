@@ -6,10 +6,11 @@
   "scripts": {
     "start": "nodemon dist/server.bundle.js",
     "start-gulp": "gulp",
-    "watch": "webpack --watch --mode production"
+    "watch": "webpack --mode development"
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "compression": "^1.7.4",
     "express-handlebars": "^3.1.0",
     "jquery": "^3.4.1",
     "popper.js": "^1.15.0"
@@ -24,7 +25,13 @@
     "eslint": "^5.16.0",
     "express": "^4.17.1",
     "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
     "nodemon": "^1.19.1",
     "regenerator-runtime": "^0.13.2",
     "source-map-support": "^0.5.12",

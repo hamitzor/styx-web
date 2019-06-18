@@ -1,20 +1,5 @@
 const path = require("path")
 
-const clientConfig = {
-  context: path.resolve(__dirname, "src/front-end/js"),
-  entry: "./index",
-  devtool: "source-map",
-  output: {
-    path: path.resolve(__dirname, "src/front-end/public/min.js"),
-    filename: "client.bundle.js"
-  },
-  module: {
-    rules: [
-      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
-    ]
-  }
-}
-
 const serverConfig = {
   context: path.resolve(__dirname, "src/back-end"),
   entry: "./index",
@@ -31,7 +16,11 @@ const serverConfig = {
     rules: [
       { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
     ]
+  },
+  watch: true,
+  watchOptions: {
+    ignored: /node_modules/
   }
 }
 
-module.exports = [clientConfig, serverConfig]
+module.exports = [serverConfig]
