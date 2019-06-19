@@ -7113,21 +7113,13 @@ textarea {
   .header .black-cover {
     background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1));
     padding-bottom: 100px;
-    margin-bottom: 50px;
     width: 100%;
     overflow: hidden; }
-
-.offer-form-card-container {
-  top: 150px;
-  position: absolute;
-  z-index: 400;
-  left: 0;
-  right: 0; }
 
 .offer-form-card {
   background-color: transparent; }
   .offer-form-card .card-body {
-    background-color: rgba(0, 0, 0, 0.75); }
+    background-color: rgba(0, 0, 0, 0.89); }
   .offer-form-card .offer-form .dropdown {
     width: 100%;
     display: flex; }
@@ -7168,8 +7160,16 @@ textarea {
     background-size: 210%; } }
 
 @media (min-width: 768px) {
+  .offer-form-card-container {
+    top: 150px;
+    position: absolute;
+    z-index: 400;
+    left: 0;
+    right: 0; }
   .offer-form-card {
-    width: 400px; }
+    width: 370px; }
+    .offer-form-card .card-body {
+      background-color: rgba(0, 0, 0, 0.75); }
   .header {
     background-size: 250%; }
     .header .black-cover {
@@ -7177,6 +7177,8 @@ textarea {
       margin-bottom: 100px; } }
 
 @media (min-width: 992px) {
+  .offer-form-card {
+    width: 450px; }
   .header {
     background-size: 230%; } }
 
@@ -7188,5 +7190,7 @@ textarea {
       margin-bottom: 100px; } }
 
 @media (min-width: 1600px) {
+  .offer-form-card {
+    width: 490px; }
   .header {
     background-size: 130%; } }
