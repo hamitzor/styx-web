@@ -1,11 +1,11 @@
 const { watch, src, dest, series, parallel } = require("gulp")
 const path = require("path")
 const sass = require("gulp-sass")
-const uglify = require("gulp-uglify")
+//const uglify = require("gulp-uglify")
 const rename = require("gulp-rename")
 const concat = require("gulp-concat")
 const sourcemaps = require("gulp-sourcemaps")
-const cleanCss = require("gulp-clean-css")
+//const cleanCss = require("gulp-clean-css")
 //const babel = require("gulp-babel")
 //const babelConfig = require("./babel.config")
 
@@ -39,7 +39,7 @@ const cssTasks = Object.keys(cssPackages).map(key => {
   return () => {
     return src(files)
       .pipe(concat(key + "concat.css"))
-      .pipe(cleanCss())
+      //.pipe(cleanCss())
       .pipe(rename(key + ".min.css"))
       .pipe(dest(minCssDir))
   }
@@ -71,7 +71,7 @@ const jsTasks = Object.keys(jsPackages).map(key => {
       .pipe(sourcemaps.init())
       //.pipe(babel(babelConfig))
       .pipe(concat(key + "concat.js"))
-      .pipe(uglify())
+      //.pipe(uglify())
       .pipe(rename(key + ".min.js"))
       .pipe(sourcemaps.write('./'))
       .pipe(dest(jsMinDir))

@@ -1,25 +1,32 @@
 @import "./core.scss";
 
-.header-container{
-  background-image: url("/assets/home-background.jpg");
-  background-position:50% 0px;
-  background-size: cover;
+
+.header{
+  background-image: url("/assets/home-background-3.jpg");
+  background-size: 500%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   .black-cover{
-    background-color: rgba(0, 0, 0, 0.4);
-    padding-bottom: 180px;
-    margin-bottom:100px;
+    background-image: linear-gradient(to bottom right, rgba(0,0,0,0.4), rgba(0,0,0,0.1));
+    padding-bottom: 100px;
+    margin-bottom:50px;
+    width: 100%;
+    overflow: hidden;
   }
 }
 
-.offer-form-card{
+.offer-form-card-container{
+  top:150px;
   position: absolute;
   z-index: 400;
-  right: 0;
-  top:150px;
+  left:0;
+  right:0;
+}
+
+.offer-form-card{
   background-color: transparent;
-  width: 450px;
   .card-body{
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.75);
   }
   .offer-form{
     .dropdown{
@@ -42,5 +49,65 @@
         }
       }
     }
+  }
+} 
+
+
+.half-triangle{
+  &-right,&-left{
+    position: absolute;
+    bottom:0;
+    width: 0; 
+    height: 0; 
+    border-bottom: 60px solid $body-bg;
+  }
+  &-left{
+    border-left: 0px solid transparent;
+    border-right: 600px solid transparent;
+  }
+  &-right{
+    left:600px;
+    border-right: 0px solid transparent;
+    border-left: 1320px solid transparent;
+  }
+}
+
+@media(min-width:576px){
+  .offer-form-card{
+    width: 100%;
+  }
+  .header{
+    background-size: 210%;
+  }
+}
+@media(min-width:768px){
+  .offer-form-card{
+    width: 400px;
+  }
+  .header{
+    background-size: 250%;
+    .black-cover{
+      padding-bottom: 180px;
+      margin-bottom:100px;
+    }
+  }
+}
+@media(min-width:992px){
+  .header{
+    background-size: 230%;
+  }
+}
+@media(min-width:1200px){
+  .header{
+    background-size: 168%;
+    .black-cover{
+      padding-bottom: 220px;
+      margin-bottom:100px;
+    }
+  }
+}
+@media(min-width:1600px){
+  .header{
+    background-size: 130%;
   }
 }

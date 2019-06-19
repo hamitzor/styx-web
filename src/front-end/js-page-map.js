@@ -5,6 +5,7 @@ module.exports = {
     "bootstrap"
   ],
   "home": [
+    "jquery.stellar",
     "home"
   ]
 }

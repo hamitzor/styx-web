@@ -1,7 +1,3 @@
-/*
-import "core-js/stable"
-import "regenerator-runtime/runtime"
-
-*/
-
-console.log("here")
+$(document).ready(function () {
+  $.stellar()
+})

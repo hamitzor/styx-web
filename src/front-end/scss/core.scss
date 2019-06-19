@@ -1,10 +1,11 @@
 $theme-colors: (
   "primary": #008cff
 );
-$body-bg: #ededed;
+$body-bg: #fbfbfb;
+
+$enable-responsive-font-sizes:true;
 
 @import "node_modules/bootstrap/scss/bootstrap";
-
 
 .border-radius-0{
   border-radius: 0
