@@ -6,7 +6,6 @@ module.exports = {
   ],
   'home': [
     'jquery.stellar',
-    'isotope.pkgd',
     'home'
   ]
 }
