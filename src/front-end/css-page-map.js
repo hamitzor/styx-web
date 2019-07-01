@@ -1,8 +1,8 @@
 module.exports = {
-  "common": [
-    "core"
+  'common': [
+    'core'
   ],
-  "home": [
-    "home"
+  'home': [
+    'home'
   ]
 }

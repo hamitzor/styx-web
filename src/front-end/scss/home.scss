@@ -1,5 +1,19 @@
 @import "./core.scss";
 
+.grid-item {
+  height:230px;
+  margin:0.5%; 
+  width: 24%;
+  background-repeat: no-repeat;
+}
+
+.grid-item--width2 {
+  height:280px;
+  margin:0.5%;
+  width: 24%;
+  background-repeat: no-repeat;
+  background-size: cover
+}
 
 .header{
   background-image: url("/assets/home-background-3.jpg");

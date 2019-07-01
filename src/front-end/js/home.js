@@ -7,4 +7,9 @@ $(document).ready(function () {
   $("div#stellar-header").attr("data-stellar-background-ratio", stellarRatio)
 
   $.stellar()
+
+  $(".grid").isotope({
+    itemSelector: ".grid-item",
+    layoutMode: "fitRows"
+  })
 })

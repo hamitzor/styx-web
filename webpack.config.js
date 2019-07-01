@@ -1,20 +1,20 @@
-const path = require("path")
+const path = require('path')
 
 const serverConfig = {
-  context: path.resolve(__dirname, "src/back-end"),
-  entry: "./index",
-  devtool: "source-map",
+  context: path.resolve(__dirname, 'src/back-end'),
+  entry: './index',
+  devtool: 'source-map',
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "server.bundle.js"
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'server.bundle.js'
   },
-  target: "node",
+  target: 'node',
   node: {
     __dirname: false
   },
   module: {
     rules: [
-      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }
     ]
   },
   watch: true,

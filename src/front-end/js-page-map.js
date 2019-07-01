@@ -1,11 +1,12 @@
 module.exports = {
-  "common": [
-    "jquery",
-    "popper",
-    "bootstrap"
+  'common': [
+    'jquery',
+    'popper',
+    'bootstrap'
   ],
-  "home": [
-    "jquery.stellar",
-    "home"
+  'home': [
+    'jquery.stellar',
+    'isotope.pkgd',
+    'home'
   ]
 }
