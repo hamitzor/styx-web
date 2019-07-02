@@ -1,54 +1,54 @@
 @import "./core.scss";
 
 .grid-item {
-  height:230px;
-  margin:0.5%; 
+  height: 230px;
+  margin: 0.5%;
   width: 24%;
   background-repeat: no-repeat;
 }
 
 .grid-item--width2 {
-  height:280px;
-  margin:0.5%;
+  height: 280px;
+  margin: 0.5%;
   width: 24%;
   background-repeat: no-repeat;
-  background-size: cover
+  background-size: cover;
 }
 
-.header{
+.header {
   background-image: url("/assets/home-background-3.jpg");
   background-size: 500%;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  .black-cover{
-    background-image: linear-gradient(to bottom right, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
+  .black-cover {
+    background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
     padding-bottom: 100px;
     width: 100%;
     overflow: hidden;
   }
 }
 
-
-.offer-form-card{
+.offer-form-card {
   background-color: transparent;
-  .card-body{
+  .card-body {
     background-color: rgba(0, 0, 0, 0.89);
   }
-  .offer-form{
-    .dropdown{
+  .offer-form {
+    .topic {
       width: 100%;
       display: flex;
-      .dropdown-menu{
-        background-color: map-get($grays,"200")
-      }
-      .btn[data-toggle="dropdown"]{
-        flex:1;
+      select {
+        option {
+          color: initial;
+        }
+        flex: 1;
+        color: white;
         display: block;
         border-color: transparent;
         border-width: 1px;
         border-radius: 0;
         border-bottom-color: map-get($grays, "600");
-        &:focus{
+        &:focus {
           box-shadow: none;
           border-color: transparent;
           border-bottom-color: map-get($grays, "200");
@@ -56,80 +56,80 @@
       }
     }
   }
-} 
+}
 
-
-.half-triangle{
-  &-right,&-left{
+.half-triangle {
+  &-right,
+  &-left {
     position: absolute;
-    bottom:0;
-    width: 0; 
-    height: 0; 
+    bottom: 0;
+    width: 0;
+    height: 0;
     border-bottom: 60px solid $body-bg;
   }
-  &-left{
+  &-left {
     border-left: 0px solid transparent;
     border-right: 600px solid transparent;
   }
-  &-right{
-    left:600px;
+  &-right {
+    left: 600px;
     border-right: 0px solid transparent;
     border-left: 1320px solid transparent;
   }
 }
 
-@media(min-width:576px){
-  .offer-form-card{
+@media (min-width: 576px) {
+  .offer-form-card {
     width: 100%;
   }
-  .header{
+  .header {
     background-size: 210%;
   }
 }
-@media(min-width:768px){
-  .offer-form-card-container{
-    top:150px;
+@media (min-width: 768px) {
+  .offer-form-card-container {
+    top: 150px;
     position: absolute;
     z-index: 400;
-    left:0;
-    right:0;
+    left: 0;
+    right: 0;
   }
-  .offer-form-card{
+  .offer-form-card {
     width: 370px;
-    .card-body{
+    .card-body {
       background-color: rgba(0, 0, 0, 0.75);
     }
   }
-  .header{
+  .header {
     background-size: 250%;
-    .black-cover{
+    .black-cover {
       padding-bottom: 180px;
-      margin-bottom:100px;
+      margin-bottom: 100px;
     }
   }
 }
-@media(min-width:992px){
-  .offer-form-card{
+@media (min-width: 992px) {
+  .offer-form-card {
     width: 450px;
   }
-  .header{
+  .header {
     background-size: 230%;
   }
 }
-@media(min-width:1200px){
-  .header{
+@media (min-width: 1200px) {
+  .header {
     background-size: 168%;
-    .black-cover{
+    .black-cover {
       padding-bottom: 220px;
-      margin-bottom:50px;
+      margin-bottom: 50px;
     }
   }
 }
-@media(min-width:1600px){
-  .offer-form-card{
+@media (min-width: 1600px) {
+  .offer-form-card {
     width: 490px;
   }
-  .header{
+  .header {
     background-size: 130%;
   }
 }
