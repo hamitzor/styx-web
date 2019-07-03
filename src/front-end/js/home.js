@@ -1,10 +1,10 @@
 $(document).ready(function () {
-  const windowWith = window.innerWidth
+  var windowWith = window.innerWidth;
 
-  const stellarRatio = windowWith < 576 ? "0.7" : "1.5"
+  var stellarRatio = windowWith < 576 ? "0.7" : "1.5";
 
 
-  $("div#stellar-header").attr("data-stellar-background-ratio", stellarRatio)
+  $("div#stellar-header").attr("data-stellar-background-ratio", stellarRatio);
 
-  $.stellar()
+  $.stellar();
 })

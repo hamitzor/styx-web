@@ -1,8 +1,8 @@
 module.exports = {
   'common': [
-    'core'
+    '/min.css/core.min.css'
   ],
   'home': [
-    'home'
+    '/min.css/home.min.css'
   ]
 }
