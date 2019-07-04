@@ -4,14 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon dist/server.bundle.js",
+    "start": "nodemon -r source-map-support/register dist/server.bundle.js",
     "start-gulp": "gulp",
     "watch": "webpack --mode development"
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
     "compression": "^1.7.4",
-    "express-handlebars": "^3.1.0",
+    "handlebars": "^4.1.2",
     "popper.js": "^1.15.0",
     "strapi-sdk-javascript": "^0.3.1"
   },

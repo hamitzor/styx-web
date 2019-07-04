@@ -3,8 +3,8 @@ const sass = require('gulp-sass')
 const rename = require('gulp-rename')
 const sourcemaps = require('gulp-sourcemaps')
 
-const cleanCss = require('gulp-clean-css')
-const uglify = require('gulp-uglify')
+//const cleanCss = require('gulp-clean-css')
+//const uglify = require('gulp-uglify')
 
 const sassFiles = ['src/front-end/scss/*.scss']
 const compiledCssDir = 'src/front-end/css'
@@ -14,7 +14,7 @@ const sassTask = () => {
   return src(sassFiles)
     .pipe(sass())
     .pipe(dest(compiledCssDir))
-    .pipe(cleanCss())
+    //.pipe(cleanCss())
     .pipe(rename({ suffix: '.min' }))
     .pipe(dest(minCssDir))
 }

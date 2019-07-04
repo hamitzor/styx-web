@@ -1,11 +1,12 @@
 import 'core-js/stable'
 import 'regenerator-runtime/runtime'
 import express from 'express'
-import exphbs from 'express-handlebars'
 import path from 'path'
 import compression from 'compression'
 import routes from './routes'
 import config from './util/config-loader'
+import pageCacher from './middlewares/page-cacher'
+import { loadContent } from './util/content-loader'
 
 const index = async () => {
 
@@ -13,18 +14,23 @@ const index = async () => {
 
   app.use(compression())
 
+  await loadContent()
+
+  app.use(pageCacher())
+
   app.use(express.static(path.resolve(__dirname, '../src/front-end/public')))
 
-  app.engine('handlebars', exphbs({
-    layoutsDir: path.resolve(__dirname, '../src/front-end/views/layouts'),
-    defaultLayout: 'main'
-  }))
+  app.use('/:lang/*', (req, res, next) => {
+    const { lang } = req.params
+    if (lang !== 'en' && lang !== 'tr') {
+      res.send('404')
+    }
+    else {
+      next()
+    }
+  })
 
-  app.set('views', path.resolve(__dirname, '../src/front-end/views'))
-
-  app.set('view engine', 'handlebars')
-
-  app.use('/', routes)
+  app.use('/:lang/', routes)
 
   const { hostname, port } = config
 
