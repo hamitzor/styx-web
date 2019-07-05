@@ -1,31 +1,9 @@
 @import "node_modules/bootstrap/scss/functions";
 @import "node_modules/bootstrap/scss/_variables";
 
-.grid-item {
-  height: 230px;
-  margin: 0.5%;
-  width: 24%;
-  background-repeat: no-repeat;
-}
-
-.grid-item--width2 {
-  height: 280px;
-  margin: 0.5%;
-  width: 24%;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .header {
-  background-image: url("/assets/home-background-3.jpg");
-  background-size: 500%;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
   .black-cover {
-    background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
     padding-bottom: 100px;
-    width: 100%;
-    overflow: hidden;
   }
 }
 
@@ -56,26 +34,6 @@
         }
       }
     }
-  }
-}
-
-.half-triangle {
-  &-right,
-  &-left {
-    position: absolute;
-    bottom: 0;
-    width: 0;
-    height: 0;
-    border-bottom: 60px solid $body-bg;
-  }
-  &-left {
-    border-left: 0px solid transparent;
-    border-right: 600px solid transparent;
-  }
-  &-right {
-    left: 600px;
-    border-right: 0px solid transparent;
-    border-left: 1320px solid transparent;
   }
 }
 

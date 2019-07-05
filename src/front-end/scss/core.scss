@@ -7,6 +7,19 @@ $enable-responsive-font-sizes: true;
 
 @import "node_modules/bootstrap/scss/bootstrap";
 
+.header {
+  background-image: url("/assets/anasayfa-background-3.jpg");
+  background-size: 250%;
+  background-position: 0 -50px;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  .black-cover {
+    background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+    width: 100%;
+    overflow: hidden;
+  }
+}
+
 .border-radius-0 {
   border-radius: 0;
 }
@@ -79,5 +92,51 @@ textarea {
         color: #ffffff;
       }
     }
+  }
+}
+
+.half-triangle {
+  &-right,
+  &-left {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 40px solid $body-bg;
+  }
+  &-left {
+    border-left: 0px solid transparent;
+    border-right: 1920px solid transparent;
+  }
+  &-right {
+    left: 600px;
+    border-right: 0px solid transparent;
+    border-left: 0 solid transparent;
+  }
+}
+
+@media (min-width: 576px) {
+  .header {
+    background-size: 210%;
+  }
+}
+@media (min-width: 768px) {
+  .header {
+    background-size: 250%;
+  }
+}
+@media (min-width: 992px) {
+  .header {
+    background-size: 230%;
+  }
+}
+@media (min-width: 1200px) {
+  .header {
+    background-size: 140%;
+  }
+}
+@media (min-width: 1600px) {
+  .header {
+    background-size: 100%;
   }
 }

@@ -1,17 +1,10 @@
 import express from 'express'
-import scripts from '../../front-end/js-page-map'
-import styles from '../../front-end/css-page-map'
-import cacheStore from '../util/cache-store'
-import { render } from '../util/hbs-loader'
+import { anasayfa, iletisim } from '../controller/home-controller'
 
-var homeRouter = express.Router()
+const homeRouter = express.Router({ mergeParams: true })
 
+homeRouter.get('/', anasayfa)
 
-homeRouter.get('/', async function (req, res) {
-  const html = render('home', { script: [...scripts.common, ...scripts.home], style: [...styles.common, ...styles.home] })
-  const requestUrl = req.url
-  cacheStore[requestUrl] = html
-  res.send(html)
-})
+homeRouter.get('/iletisim/', iletisim)
 
 export default homeRouter

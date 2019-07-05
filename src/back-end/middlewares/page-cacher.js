@@ -1,9 +1,7 @@
-import cacheStore from '../util/cache-store'
+import { getCachedPage } from '../util/cache-store'
 
 const pageCacher = () => (req, res, next) => {
-  const requestUrl = req.url
-  const cachedHtml = cacheStore[requestUrl]
-
+  const cachedHtml = getCachedPage(req.originalUrl)
   if (cachedHtml) {
     res.send(cachedHtml)
   }
