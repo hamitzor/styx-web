@@ -1,10 +1,11 @@
 module.exports = {
   common: [
-    '/min.css/core.min.css'
+    '/public/min.css/core.min.css'
   ],
   anasayfa: [
-    '/min.css/anasayfa.min.css'
+    '/public/min.css/anasayfa.min.css',
+    '/public/min.css/slick.min.css'
   ],
-  iletisim:[],
+  iletisim: [],
   error: []
 }

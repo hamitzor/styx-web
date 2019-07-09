@@ -4,11 +4,37 @@ $theme-colors: (
 $body-bg: #fbfbfb;
 
 $enable-responsive-font-sizes: true;
+$mobile-popup-z: 5000;
+$menu-z:2000;
 
 @import "node_modules/bootstrap/scss/bootstrap";
 
+.menu-container{
+  position: relative;
+  .menu{
+    z-index: $menu-z;
+    width: max-content;
+    position: absolute;
+    top:calc( 100% + 0.1rem );
+    background-color: map-get($grays, "100");
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0rem;
+    border-radius: 2px;
+    .menu-item{
+      transition: background-color 100ms ease-in;
+      color: map-get($grays, "900");
+      background-color: map-get($grays, "100");
+      padding: 0.5rem 0.75rem;
+      &:hover{
+        background-color: map-get($grays, "200");
+      }
+    }
+  }
+}
+
 .header {
-  background-image: url("/assets/anasayfa-background-3.jpg");
+  background-image: url("/public/assets/anasayfa-background-3.jpg");
   background-size: 250%;
   background-position: 0 -50px;
   background-attachment: fixed;
@@ -30,6 +56,22 @@ textarea {
 
 .dropdown-menu {
   border-width: 0px;
+}
+
+a{
+  color: map-get($grays, "200");
+  text-decoration: none;
+  &:hover{
+    color: map-get($grays, "200");
+    text-decoration: none;
+  }
+}
+
+button.btn{
+  &.btn-link{
+    color: map-get($grays, "200");
+    text-decoration: none;
+  }
 }
 
 .btn {
@@ -66,13 +108,63 @@ textarea {
   border-radius: 0;
 }
 
+.mobile-popup{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex:1;
+  z-index: $mobile-popup-z;
+  background-color: rgba(0, 0, 0, 0.88);
+  font-size: 2rem;
+  button.close-menu.btn{
+    font-size: 4rem;
+    align-items: flex-end;
+    right: 10px;
+    top:0;
+    padding: 0 0.75rem;
+  }
+  a.btn,button.btn{
+    font-size: 2rem;
+  }
+}
+
+.mobile-navbar{
+  .navbar-links{
+    list-style: none;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    .nav-item{
+      display: flex;
+      justify-content: center;
+      .nav-link{
+        color: map-get($grays, "200");
+      }
+    }
+  }
+}
+
 .navbar-custom {
-  background-color: #ffffff00;
+  background-color: transparent;
+  .navbar-links-container{
+    display: none;
+  }
   .navbar-brand,
   .navbar-text {
-    color: rgb(255, 255, 255);
+    color: white;
     font-size: 1.8rem;
     font-weight: 600;
+  }
+
+  .navbar-toggler{
+    border:none;
+    outline: none;
+    color:map-get($grays, "300")
   }
 
   .navbar-nav {
@@ -115,6 +207,7 @@ textarea {
   }
 }
 
+
 @media (min-width: 576px) {
   .header {
     background-size: 210%;
@@ -128,6 +221,24 @@ textarea {
 @media (min-width: 992px) {
   .header {
     background-size: 230%;
+  }
+  .navbar-custom{
+    .navbar-links-container{
+      display: flex;
+      flex:1;
+      .navbar-links{
+        list-style: none;
+        margin: 0;
+        margin-left: auto;
+        padding: 0;
+        .nav-item{
+          display: inline-block;
+          .nav-link{
+            color: map-get($grays, "200");
+          }
+        }
+      }
+    }
   }
 }
 @media (min-width: 1200px) {

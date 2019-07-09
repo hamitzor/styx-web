@@ -16,7 +16,11 @@ const main = async () => {
   if (isProduction) {
     app.use(compression())
   }
-  app.use(express.static(path.resolve(__dirname, '../src/front-end/public')))
+  app.use('/public', express.static(path.resolve(__dirname, '../src/front-end/public')))
+  app.use(/\//, (req, res) => {
+    console.log(req.originalUrl)
+    res.redirect('/tr/')
+  })
   if (isProduction) {
     app.use('/:lang/', pageCacher())
   }

@@ -5,7 +5,7 @@ const anasayfa = async (req, res) => {
   const { lang } = req.params
   const html = renderToHtml({
     view: 'anasayfa',
-    viewContent: { headerFiles: ['common', 'anasayfa'], lang }
+    viewContent: { cssAndJsFiles: ['common', 'anasayfa'], lang }
   })
   cachePage(req.originalUrl, html)
   res.send(html)
@@ -15,7 +15,7 @@ const iletisim = async (req, res) => {
   const { lang } = req.params
   const html = renderToHtml({
     view: 'iletisim',
-    viewContent: { headerFiles: ['common', 'iletisim'], lang }
+    viewContent: { cssAndJsFiles: ['common', 'iletisim'], lang }
   })
   cachePage(req.originalUrl, html)
   res.send(html)

@@ -5,11 +5,11 @@
   <title>{{title}}</title>
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel='shortcut icon' type='image/x-icon' href='/assets/favicon.ico' />
+  <link rel='shortcut icon' type='image/x-icon' href='/public/assets/favicon.ico' />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  {{#each headerFiles.style}}
+  {{#each stylesheets}}
   <link rel="stylesheet" href="{{this}}">
   {{/each}}
 
@@ -20,54 +20,88 @@
 </head>
 
 <body>
-
+  <div id="mobile-navbar" class="mobile-popup mobile-navbar" style="bottom: 700px; opacity: 0; display: none;">
+    <div class="position-relative d-flex w-100 justify-content-center">
+      <button id="close-mobile-navbar" type="button" class="btn btn-link position-absolute close-menu">
+        &times;
+      </button>
+      <ul class="navbar-links">
+        <li class="nav-item">
+          <a class="nav-link" href="#">{{trs yazis.layout_nav_anasayfa lang}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">{{trs yazis.layout_nav_hakkimizda lang}}</a>
+        </li>
+        <li class="nav-item dropdown">
+          <button id="open-mobile-hizmetler" type="button"
+            class="btn btn-link">{{trs yazis.layout_nav_urunlerimiz lang}}</button>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">{{trs yazis.layout_nav_iletisim lang}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-primary px-3 ml-0 ml-lg-3" href="#" role="button">{{trs yazis.layout_nav_teklif lang}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="mobile-hizmetler" class="mobile-popup mobile-hizmetler" style="top: 700px; opacity: 0; display: none;">
+    <div class="position-relative d-flex w-100 justify-content-center">
+      <button id="close-mobile-hizmetler" type="button" class="btn btn-link position-absolute close-menu">
+        &times;
+      </button>
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <a href="#">Hizmet 1</a>
+        <a href="#">Hizmet 2</a>
+        <a href="#">Hizmet 3</a>
+        <a href="#">Hizmet 4</a>
+      </div>
+    </div>
+  </div>
   <div class="header-container position-relative">
     <div id="stellar-header" class="header">
       <div class="black-cover position-relative">
         <div class="container pt-3 mb-5 position-relative">
-
           <nav class="navbar navbar-expand-lg navbar-dark navbar-custom p-0 p-md-2">
 
-            <a class="navbar-brand" href="#">{{translate yazis.layout_logo 'deger' lang}}</a>
+            <a class="navbar-brand" href="#">{{trs yazis.layout_logo lang}}</a>
 
             <!--Add here -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-              <span class="navbar-toggler-icon"></span>
+            <button id="open-mobile-navbar" class="navbar-toggler" type="button">
+              <i class="fa fa-2x fa-bars"></i>
             </button>
             <!--Add here -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav ml-auto">
+            <div class="navbar-links-container">
+              <ul class="navbar-links">
                 <li class="nav-item">
-                  <a class="nav-link" href="#">{{translate yazis.layout_nav_anasayfa 'deger' lang}}</a>
+                  <a class="nav-link" href="#">{{trs yazis.layout_nav_anasayfa lang}}</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">{{translate yazis.layout_nav_hakkimizda 'deger' lang}}</a>
+                  <a class="nav-link" href="#">{{trs yazis.layout_nav_hakkimizda lang}}</a>
                 </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown">
-                    {{translate yazis.layout_nav_urunlerimiz 'deger' lang}}
-                  </a>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item active" href="#">Product 1</a>
-                    <a class="dropdown-item" href="#">Product 2</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Another Product</a>
+                <li class="nav-item menu-container">
+                  <button role="link" type="button" class="btn btn-link dropdown-toggle menu-toggle" href="#">
+                    {{trs yazis.layout_nav_urunlerimiz lang}}
+                  </button>
+                  <div class="menu" style="display: none">
+                    <a class="menu-item" href="#">Product 1</a>
+                    <a class="menu-item" href="#">Product 2</a>
+                    <a class="menu-item" href="#">Another Product</a>
                   </div>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">{{translate yazis.layout_nav_iletisim 'deger' lang}}</a>
+                  <a class="nav-link" href="#">{{trs yazis.layout_nav_iletisim lang}}</a>
                 </li>
                 <li class="nav-item">
                   <a class="btn btn-primary px-3 ml-0 ml-lg-3" href="#"
-                    role="button">{{translate yazis.layout_nav_teklif 'deger' lang}}</a>
+                    role="button">{{trs yazis.layout_nav_teklif lang}}</a>
                 </li>
               </ul>
             </div>
           </nav>
-
           {{{bodyContent}}}
 
-          {{#each headerFiles.script}}
+          {{#each scripts}}
           <script src="{{this}}"></script>
           {{/each}}
 

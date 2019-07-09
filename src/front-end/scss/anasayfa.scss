@@ -1,11 +1,7 @@
 @import "node_modules/bootstrap/scss/functions";
 @import "node_modules/bootstrap/scss/_variables";
 
-.header {
-  .black-cover {
-    padding-bottom: 100px;
-  }
-}
+
 
 .offer-form-card {
   background-color: transparent;
@@ -62,7 +58,7 @@
   .header {
     background-size: 250%;
     .black-cover {
-      padding-bottom: 180px;
+      padding-bottom: 120px;
       margin-bottom: 100px;
     }
   }
@@ -79,7 +75,7 @@
   .header {
     background-size: 168%;
     .black-cover {
-      padding-bottom: 220px;
+      padding-bottom: 150px;
       margin-bottom: 50px;
     }
   }

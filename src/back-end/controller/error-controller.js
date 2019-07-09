@@ -5,7 +5,7 @@ const notFound = async function (req, res) {
   const { lang } = req.params
   const html = renderToHtml({
     view: 'not-found',
-    viewContent: { headerFiles: ['common', 'error'], lang }
+    viewContent: { cssAndJsFiles: ['common', 'error'], lang }
   })
   cachePage(req.originalUrl, html)
   res.send(html)

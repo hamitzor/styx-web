@@ -1,9 +1,8 @@
-import { notFound } from '../controller/error-controller'
 
 const languageChecker = (langs) => (req, res, next) => {
   const { lang } = req.params
   if (!langs.includes(lang)) {
-    notFound(req, res)
+    res.redirect(`/tr${req.originalUrl}`)
   }
   else {
     next()

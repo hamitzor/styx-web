@@ -3,10 +3,13 @@ import fs from 'fs'
 import hbs from 'handlebars'
 import { content } from './content-loader'
 import scripts from '../../front-end/js-page-map'
-import styles from '../../front-end/css-page-map'
+import stylesheets from '../../front-end/css-page-map'
 
 
-hbs.registerHelper('translate', (obj, key, lang) => {
+hbs.registerHelper('trs', (obj, lang, key) => {
+  if (!key || typeof key != 'String') {
+    key = 'deger'
+  }
   if (!lang || lang === 'tr') {
     return obj[key]
   }
@@ -18,14 +21,14 @@ hbs.registerHelper('translate', (obj, key, lang) => {
 const getView = view => fs.readFileSync(path.resolve(__dirname, '../src/front-end/views', `${view}.handlebars`), 'utf8')
 
 const renderToHtml = ({ view, viewContent = {}, layout = 'layout' }) => {
-  const headerFiles = viewContent.headerFiles && viewContent.headerFiles.reduce((acc, key) => {
+  const cssAndJsFiles = viewContent.cssAndJsFiles && viewContent.cssAndJsFiles.reduce((acc, key) => {
     return {
-      script: [...acc.script, ...scripts[key]],
-      style: [...acc.style, ...styles[key]]
+      scripts: [...acc.scripts, ...scripts[key]],
+      stylesheets: [...acc.stylesheets, ...stylesheets[key]]
     }
-  }, { script: [], style: [] })
+  }, { scripts: [], stylesheets: [] })
   const bodyContent = (hbs.compile(getView(view)))({ ...content, ...viewContent })
-  const html = (hbs.compile(getView(layout)))({ ...content, ...viewContent, bodyContent, headerFiles })
+  const html = (hbs.compile(getView(layout)))({ ...content, ...viewContent, bodyContent, ...cssAndJsFiles })
 
   return html
 }
