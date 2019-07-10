@@ -5,16 +5,16 @@ module.exports = {
     'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
   ],
   anasayfa: [
-    '/public/min.js/stellar.min.js',
+    '/public/min.js/paroller.min.js',
     '/public/min.js/core.min.js',
     '/public/min.js/slick.min.js',
     '/public/min.js/anasayfa.min.js'
   ],
   iletisim: [
-    '/public/min.js/stellar.min.js',
+    '/public/min.js/paroller.min.js',
     '/public/min.js/core.min.js'
   ],
-  error: ['/public/min.js/stellar.min.js',
+  error: ['/public/min.js/paroller.min.js',
     '/public/min.js/core.min.js'
   ]
 }

@@ -1,7 +1,31 @@
 @import "node_modules/bootstrap/scss/functions";
 @import "node_modules/bootstrap/scss/_variables";
+@import "./vars";
 
+.anasayfa-showcase{
+  z-index: $showcase-z;
+}
 
+.half-triangle {
+  &-right,
+  &-left {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 60px solid $body-bg;
+  }
+  &-left {
+    left:600px;
+    border-left: 1320px solid transparent;
+    border-right: 0px solid transparent;
+  }
+  &-right {
+    left: 0px;
+    border-right: 600px solid transparent;
+    border-left: 0px solid transparent;
+  }
+}
 
 .offer-form-card {
   background-color: transparent;
@@ -34,26 +58,13 @@
 }
 
 @media (min-width: 576px) {
-  .offer-form-card {
-    width: 100%;
-  }
   .header {
     background-size: 210%;
   }
 }
 @media (min-width: 768px) {
-  .offer-form-card-container {
-    top: 150px;
-    position: absolute;
-    z-index: 400;
-    left: 0;
-    right: 0;
-  }
   .offer-form-card {
-    width: 370px;
-    .card-body {
-      background-color: rgba(0, 0, 0, 0.75);
-    }
+    width: 100%;
   }
   .header {
     background-size: 250%;
@@ -64,8 +75,18 @@
   }
 }
 @media (min-width: 992px) {
+  .offer-form-card-container {
+    top: 150px;
+    position: absolute;
+    z-index: 400;
+    left: 0;
+    right: 0;
+  }
   .offer-form-card {
-    width: 450px;
+    width: 350px;
+    .card-body {
+      background-color: rgba(0, 0, 0, 0.75);
+    }
   }
   .header {
     background-size: 230%;
@@ -75,14 +96,14 @@
   .header {
     background-size: 168%;
     .black-cover {
-      padding-bottom: 150px;
+      padding-bottom: 100px;
       margin-bottom: 50px;
     }
   }
 }
 @media (min-width: 1600px) {
   .offer-form-card {
-    width: 490px;
+    width: 420px;
   }
   .header {
     background-size: 130%;

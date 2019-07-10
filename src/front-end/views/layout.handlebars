@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel='shortcut icon' type='image/x-icon' href='/public/assets/favicon.ico' />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.lineicons.com/1.0.1/LineIcons.min.css">
 
   {{#each stylesheets}}
   <link rel="stylesheet" href="{{this}}">
@@ -23,7 +23,7 @@
   <div id="mobile-navbar" class="mobile-popup mobile-navbar" style="bottom: 700px; opacity: 0; display: none;">
     <div class="position-relative d-flex w-100 justify-content-center">
       <button id="close-mobile-navbar" type="button" class="btn btn-link position-absolute close-menu">
-        &times;
+        <i class="lni-close size-lg"></i>
       </button>
       <ul class="navbar-links">
         <li class="nav-item">
@@ -48,7 +48,7 @@
   <div id="mobile-hizmetler" class="mobile-popup mobile-hizmetler" style="top: 700px; opacity: 0; display: none;">
     <div class="position-relative d-flex w-100 justify-content-center">
       <button id="close-mobile-hizmetler" type="button" class="btn btn-link position-absolute close-menu">
-        &times;
+        <i class="lni-close size-lg"></i>
       </button>
       <div class="d-flex flex-column align-items-center justify-content-center">
         <a href="#">Hizmet 1</a>
@@ -68,18 +68,18 @@
 
             <!--Add here -->
             <button id="open-mobile-navbar" class="navbar-toggler" type="button">
-              <i class="fa fa-2x fa-bars"></i>
+              <i class="lni-menu size-lg"></i>
             </button>
             <!--Add here -->
             <div class="navbar-links-container">
               <ul class="navbar-links">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">{{trs yazis.layout_nav_anasayfa lang}}</a>
+                <li class="nav-item px-2">
+                  <a href="#">{{trs yazis.layout_nav_anasayfa lang}}</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">{{trs yazis.layout_nav_hakkimizda lang}}</a>
+                <li class="nav-item px-2">
+                  <a href="#">{{trs yazis.layout_nav_hakkimizda lang}}</a>
                 </li>
-                <li class="nav-item menu-container">
+                <li class="nav-item menu-container pr-1">
                   <button role="link" type="button" class="btn btn-link dropdown-toggle menu-toggle" href="#">
                     {{trs yazis.layout_nav_urunlerimiz lang}}
                   </button>
@@ -89,8 +89,8 @@
                     <a class="menu-item" href="#">Another Product</a>
                   </div>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">{{trs yazis.layout_nav_iletisim lang}}</a>
+                <li class="nav-item px-2">
+                  <a href="#">{{trs yazis.layout_nav_iletisim lang}}</a>
                 </li>
                 <li class="nav-item">
                   <a class="btn btn-primary px-3 ml-0 ml-lg-3" href="#"
@@ -100,7 +100,55 @@
             </div>
           </nav>
           {{{bodyContent}}}
+          <div class="footer-container bg-darker text-white">
+            <div class="footer container py-3">
+              <div class="row text-center text-md-left">
+                <div class="col-md-4 py-2 py-md-4 px-1 px-md-3">
+                  <h3>{{trs yazis.layout_logo lang}}</h3>
+                  <p>Ostim OSB Mahallesi
+                    1213. Sokak 1/1
+                    Yenimahalle / Ankara
+                  </p>
+                  <p>
+                    <i class="lni-phone-handset mr-2"></i>
+                    +90 0532 725 70 57
+                  </p>
+                  <p>
+                    <i class="lni-envelope mr-2"></i>
+                    <a href="mailto:bilgi@styxyazilim.com">bilgi@styxyazilim.com</a>
+                  </p>
+                </div>
+                <div class="col-md-4 py-2 py-md-4 px-1 px-md-3">
+                  <h5 class="footer-section-title"><a href="#">HİZMETLER</a></h5>
+                  <div class="footer-section-strip mx-auto mx-md-0"></div>
+                  <div class="mb-1 lead"><a href="#">OBYS</a></div>
+                  <div class="mb-1"><a href="#">OMYS</a></div>
+                  <div class="mb-1"><a href="#">AOSİS</a></div>
+                  <div class="mb-1"><a href="#">E-Tahsilat</a></div>
+                  <div class="mb-1"><a href="#">Akıllı Ödeme Sistemi</a></div>
+                  <div class="mb-1"><a href="#">ERP Sistemleri Entegrasyon</a></div>
+                </div>
+                <div class="col-md-4 py-2 py-md-4 px-1 px-md-3">
+                  <h5 class="footer-section-title">KISAYOLLAR</h5>
+                  <div class="footer-section-strip mx-auto mx-md-0"></div>
+                  <div class="mb-1"><a href="#">Kurumsal</a></div>
+                  <div class="mb-1"><a href="#">Hizmetler</a></div>
+                  <div class="mb-1"><a href="#">Referanslar</a></div>
+                  <div class="mb-1"><a href="#">İletişim</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="copyright bg-black">
+              <div class="container py-2">
+                <div class="row">
+                  <div class="col-12 text-center font-weight-bold">© Styx Yazılım Hizmetleri Sanayi ve Ticaret A.Ş</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
 
+          </div>
           {{#each scripts}}
           <script src="{{this}}"></script>
           {{/each}}

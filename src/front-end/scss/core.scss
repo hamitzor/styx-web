@@ -1,13 +1,72 @@
-$theme-colors: (
-  "primary": #008cff
-);
-$body-bg: #fbfbfb;
-
-$enable-responsive-font-sizes: true;
-$mobile-popup-z: 5000;
-$menu-z:2000;
-
+@import "./vars";
 @import "node_modules/bootstrap/scss/bootstrap";
+
+div.slider-item{
+  height: 100%;
+  &.slider-hidden-item{
+    overflow: hidden;
+    height: 0;
+    width: 0;
+  }
+}
+
+ul.slider{
+  &-dot{
+    padding: 0;
+    margin: 0;
+    margin-bottom: 0.2rem;
+    list-style: none;
+    text-align: center;
+    li{
+      display: inline-block;
+      &.slick-active{
+        button{
+          background-color: map-get($theme-colors, "primary");
+        }
+      }
+      button{
+        color:transparent;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        border:none;
+        padding: 0;
+        margin: 0 4px;
+        background-color: map-get($grays, "100");
+        transition: background-color 200ms ease-in;
+      }
+    }
+  }
+}
+
+div.slider{
+  &-prev,&-next{
+    overflow: hidden;
+    height: 0;
+    width: 0;
+  }
+}
+
+
+.footer{
+  .footer-section-strip{
+    display: block;
+    height: 3px;
+    width: 50%;
+    margin-bottom: 0.7rem;
+    background-color: map-get($theme-colors, "primary");
+  }
+}
+
+.bg-{
+  &black{
+    background-color: #060606!important;
+  }
+  &darker{
+    background-color: map-get($grays, "900");
+  }
+  
+}
 
 .menu-container{
   position: relative;
@@ -22,20 +81,21 @@ $menu-z:2000;
     padding: 0.5rem 0rem;
     border-radius: 2px;
     .menu-item{
-      transition: background-color 100ms ease-in;
+      transition: background-color $color-transition-duration ease-in,color $color-transition-duration ease-in;
       color: map-get($grays, "900");
       background-color: map-get($grays, "100");
       padding: 0.5rem 0.75rem;
       &:hover{
         background-color: map-get($grays, "200");
+        color: map-get($theme-colors, "primary");
       }
     }
   }
 }
 
 .header {
-  background-image: url("/public/assets/anasayfa-background-3.jpg");
-  background-size: 250%;
+  background-image: url('/public/assets/anasayfa-background.jpg');
+  background-size: 300%;
   background-position: 0 -50px;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -59,10 +119,11 @@ textarea {
 }
 
 a{
-  color: map-get($grays, "200");
+  color: map-get($grays, "100");
   text-decoration: none;
+  transition: color $color-transition-duration;
   &:hover{
-    color: map-get($grays, "200");
+    color: map-get($theme-colors, "primary");
     text-decoration: none;
   }
 }
@@ -120,10 +181,9 @@ button.btn{
   background-color: rgba(0, 0, 0, 0.88);
   font-size: 2rem;
   button.close-menu.btn{
-    font-size: 4rem;
     align-items: flex-end;
     right: 10px;
-    top:0;
+    top:20px;
     padding: 0 0.75rem;
   }
   a.btn,button.btn{
@@ -219,6 +279,35 @@ button.btn{
   }
 }
 @media (min-width: 992px) {
+  div.slider{
+    &-prev,&-next{
+      overflow: initial;
+      height: initial;
+      width: initial;
+      font-size: 2rem;
+      position: absolute;
+      top:0;
+      bottom:0;
+      margin: auto;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1rem;
+      transition: font-size 50ms ease-in,opacity 50ms ease-in;
+      opacity: 0.3;
+      &:hover{
+        font-size: 2.6rem;
+        opacity: 1;
+      }
+    }
+    &-prev{
+      left:-4rem;
+    }
+    &-next{
+      right:-4rem;
+    }
+  }
   .header {
     background-size: 230%;
   }
