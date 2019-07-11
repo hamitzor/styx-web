@@ -25,24 +25,19 @@
       <button id="close-mobile-navbar" type="button" class="btn btn-link position-absolute close-menu">
         <i class="lni-close size-lg"></i>
       </button>
-      <ul class="navbar-links">
-        <li class="nav-item">
-          <a class="nav-link" href="#">{{trs yazis.layout_nav_anasayfa lang}}</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">{{trs yazis.layout_nav_hakkimizda lang}}</a>
-        </li>
-        <li class="nav-item dropdown">
-          <button id="open-mobile-hizmetler" type="button"
-            class="btn btn-link">{{trs yazis.layout_nav_urunlerimiz lang}}</button>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">{{trs yazis.layout_nav_iletisim lang}}</a>
-        </li>
-        <li class="nav-item">
-          <a class="btn btn-primary px-3 ml-0 ml-lg-3" href="#" role="button">{{trs yazis.layout_nav_teklif lang}}</a>
-        </li>
-      </ul>
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <a href="#"><i class="lni-home mr-3"></i>{{trs yazis.layout_nav_anasayfa lang}}</a>
+        <div class="list-strip-20 mx-auto mb-2"></div>
+        <a class="nav-link" href="#"><i class="lni-apartment mr-3"></i>{{trs yazis.layout_nav_hakkimizda lang}}</a>
+        <div class="list-strip-20 mx-auto mb-2"></div>
+        <button id="open-mobile-hizmetler" type="button" class="btn btn-link">
+          <i class="lni-laptop-phone mr-3"></i>{{trs yazis.layout_nav_urunlerimiz lang}}</button>
+        <div class="list-strip-20 mx-auto mb-2"></div>
+        <a class="nav-link" href="#"><i class="lni-phone mr-3"></i>{{trs yazis.layout_nav_iletisim lang}}</a>
+        <div class="list-strip-20 mx-auto mb-2"></div>
+        <a class="btn btn-primary px-3 mt-3 ml-0 ml-lg-3" href="#"
+          role="button">{{trs yazis.layout_nav_teklif lang}}</a>
+      </div>
     </div>
   </div>
   <div id="mobile-hizmetler" class="mobile-popup mobile-hizmetler" style="top: 700px; opacity: 0; display: none;">
@@ -51,10 +46,18 @@
         <i class="lni-close size-lg"></i>
       </button>
       <div class="d-flex flex-column align-items-center justify-content-center">
-        <a href="#">Hizmet 1</a>
-        <a href="#">Hizmet 2</a>
-        <a href="#">Hizmet 3</a>
-        <a href="#">Hizmet 4</a>
+        <a href="#">OBYS</a>
+        <div class="list-strip-20 mx-auto mb-2"></div>
+        <a href="#">OMYS</a>
+        <div class="list-strip-20 mx-auto mb-2"></div>
+        <a href="#">AOSİS</a>
+        <div class="list-strip-20 mx-auto mb-2"></div>
+        <a href="#">E-Tahsilat</a>
+        <div class="list-strip-20 mx-auto mb-2"></div>
+        <a href="#">Akıllı Ödeme Sistemi</a>
+        <div class="list-strip-20 mx-auto mb-2"></div>
+        <a href="#">ERP Sistemleri Entegrasyon</a>
+        <div class="list-strip-20 mx-auto mb-2"></div>
       </div>
     </div>
   </div>
@@ -68,7 +71,7 @@
 
             <!--Add here -->
             <button id="open-mobile-navbar" class="navbar-toggler" type="button">
-              <i class="lni-menu size-lg"></i>
+              <i class="lni-chevron-down size-lg"></i>
             </button>
             <!--Add here -->
             <div class="navbar-links-container">
@@ -84,9 +87,12 @@
                     {{trs yazis.layout_nav_urunlerimiz lang}}
                   </button>
                   <div class="menu" style="display: none">
-                    <a class="menu-item" href="#">Product 1</a>
-                    <a class="menu-item" href="#">Product 2</a>
-                    <a class="menu-item" href="#">Another Product</a>
+                    <a class="menu-item" href="#">OBYS</a>
+                    <a class="menu-item" href="#">OMYS</a>
+                    <a class="menu-item" href="#">AOSİS</a>
+                    <a class="menu-item" href="#">E-Tahsilat</a>
+                    <a class="menu-item" href="#">Akıllı Ödeme Sistemi</a>
+                    <a class="menu-item" href="#">ERP Sistemleri Entegrasyon</a>
                   </div>
                 </li>
                 <li class="nav-item px-2">
@@ -120,7 +126,7 @@
                 </div>
                 <div class="col-md-4 py-2 py-md-4 px-1 px-md-3">
                   <h5 class="footer-section-title"><a href="#">HİZMETLER</a></h5>
-                  <div class="footer-section-strip mx-auto mx-md-0"></div>
+                  <div class="section-strip-50 mx-auto mx-md-0"></div>
                   <div class="mb-1 lead"><a href="#">OBYS</a></div>
                   <div class="mb-1"><a href="#">OMYS</a></div>
                   <div class="mb-1"><a href="#">AOSİS</a></div>
@@ -130,7 +136,7 @@
                 </div>
                 <div class="col-md-4 py-2 py-md-4 px-1 px-md-3">
                   <h5 class="footer-section-title">KISAYOLLAR</h5>
-                  <div class="footer-section-strip mx-auto mx-md-0"></div>
+                  <div class="section-strip-50 mx-auto mx-md-0"></div>
                   <div class="mb-1"><a href="#">Kurumsal</a></div>
                   <div class="mb-1"><a href="#">Hizmetler</a></div>
                   <div class="mb-1"><a href="#">Referanslar</a></div>

@@ -14,12 +14,25 @@ function bodyClickFadeOut(list) {
   })
 }
 
+function hideNavbarButton() {
+  $('button#open-mobile-navbar').animate({
+    opacity: 0,
+  }, 50);
+}
+
+function showNavbarButton() {
+  $('button#open-mobile-navbar').animate({
+    opacity: 1,
+  }, 50);
+}
+
 function openNavbar() {
   $('div#mobile-navbar').css('display', 'flex');
   $('div#mobile-navbar').animate({
     bottom: '0px',
-    opacity: '1'
+    opacity: 1
   }, POPUP_ANIMATE_DURATION);
+  hideNavbarButton();
 }
 
 function closeNavbar() {
@@ -29,6 +42,10 @@ function closeNavbar() {
   }, POPUP_ANIMATE_DURATION, function () {
     $('div#mobile-navbar').css('display', 'none');
   });
+  $('button#open-mobile-navbar').animate({
+    opacity: 1,
+  }, POPUP_ANIMATE_DURATION);
+  showNavbarButton();
 }
 
 function openHizmetler() {
@@ -37,6 +54,7 @@ function openHizmetler() {
     top: '0px',
     opacity: '1'
   }, POPUP_ANIMATE_DURATION);
+  hideNavbarButton();
 }
 
 function closeHizmetler() {
@@ -46,6 +64,7 @@ function closeHizmetler() {
   }, POPUP_ANIMATE_DURATION, function () {
     $('div#mobile-hizmetler').css('display', 'none');
   });
+  showNavbarButton();
 }
 
 function initMenus() {
@@ -64,7 +83,7 @@ $(document).ready(function () {
 
   if (windowWith > 991) {
     $('div#stellar-header').paroller({
-      factor: -1.2,
+      factor: -1.3,
     });
   }
 

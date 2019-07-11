@@ -2,6 +2,16 @@
 @import "node_modules/bootstrap/scss/_variables";
 @import "./vars";
 
+.referans-card{
+  width: 95%;
+  height: 200px;
+}
+
+.round-card{
+  font-size: 3rem;
+}
+
+
 .anasayfa-showcase{
   z-index: $showcase-z;
 }
@@ -63,6 +73,14 @@
   }
 }
 @media (min-width: 768px) {
+  .referans-card{
+    height: 200px;
+  }
+  .round-card{
+    &:hover{
+      font-size: 4rem;
+    }
+  }
   .offer-form-card {
     width: 100%;
   }
@@ -75,6 +93,10 @@
   }
 }
 @media (min-width: 992px) {
+  .referans-card{
+    width: 90%;
+    height: 200px;
+  }
   .offer-form-card-container {
     top: 150px;
     position: absolute;

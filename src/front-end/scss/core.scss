@@ -1,6 +1,61 @@
 @import "./vars";
 @import "node_modules/bootstrap/scss/bootstrap";
 
+.font-weight-medium{
+  font-weight: 500;
+}
+
+.reactive-card{
+  position: relative;
+  border: 1px solid rgba($color: #000000, $alpha: 0.1);
+  border-radius: 6px;
+  color: map-get($grays, "900");
+  overflow: hidden;
+  display: flex;
+  .reactive-card-background{
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: all 400ms ease;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: $reactive-card-content-z - 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: background-color 400ms;
+    background-color: rgba(0, 0, 0, 0);
+  }
+  .reactive-card-content{
+    z-index: $reactive-card-content-z;
+    position: absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    opacity: 0;
+    transition: opacity 400ms;
+  }
+}
+
+.round-card{
+  background-color: map-get($grays, "100");
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1px solid rgba($color: #000000, $alpha: 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: map-get($grays, "900");
+  text-decoration: none;
+  transition: background-color 200ms,font-size 100ms;
+}
+
 div.slider-item{
   height: 100%;
   &.slider-hidden-item{
@@ -47,14 +102,32 @@ div.slider{
   }
 }
 
+.list-strip{
+  &-50,&-20{
+    display: block;
+    height: 1px;
+    background-color:  map-get($grays, "500");;
+  }
+  &-50{
+    width: 50%;
+  }
+  &-20{
+    width: 20%;
+  }
+}
 
-.footer{
-  .footer-section-strip{
+.section-strip{
+  &-50,&-30{
     display: block;
     height: 3px;
-    width: 50%;
     margin-bottom: 0.7rem;
     background-color: map-get($theme-colors, "primary");
+  }
+  &-50{
+    width: 50%;
+  }
+  &-30{
+    width: 30%;
   }
 }
 
@@ -95,7 +168,7 @@ div.slider{
 
 .header {
   background-image: url('/public/assets/anasayfa-background.jpg');
-  background-size: 300%;
+  background-size: 320%;
   background-position: 0 -50px;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -179,7 +252,7 @@ button.btn{
   flex:1;
   z-index: $mobile-popup-z;
   background-color: rgba(0, 0, 0, 0.88);
-  font-size: 2rem;
+  font-size: 1.6rem;
   button.close-menu.btn{
     align-items: flex-end;
     right: 10px;
@@ -187,7 +260,7 @@ button.btn{
     padding: 0 0.75rem;
   }
   a.btn,button.btn{
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 }
 
@@ -277,8 +350,32 @@ button.btn{
   .header {
     background-size: 250%;
   }
+  .round-card{
+    width: 120px;
+    height: 120px;
+  }
 }
 @media (min-width: 992px) {
+
+.reactive-card{
+  &:hover{
+    .reactive-card-background{
+      transform: scale(1.3);
+    }
+    &::before{
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+    .reactive-card-content{
+      opacity: 1;
+    }
+  }
+}
+
+.round-card{
+  &:hover{
+    background-color: map-get($grays, "200");
+  }
+}
   div.slider{
     &-prev,&-next{
       overflow: initial;
