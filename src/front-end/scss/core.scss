@@ -12,6 +12,17 @@
   color: map-get($grays, "900");
   overflow: hidden;
   display: flex;
+  &:hover{
+    .reactive-card-background{
+      transform: scale(1.3);
+    }
+    &::before{
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+    .reactive-card-content{
+      opacity: 1;
+    }
+  }
   .reactive-card-background{
     height: 100%;
     width: 100%;
@@ -356,20 +367,6 @@ button.btn{
   }
 }
 @media (min-width: 992px) {
-
-.reactive-card{
-  &:hover{
-    .reactive-card-background{
-      transform: scale(1.3);
-    }
-    &::before{
-      background-color: rgba(0, 0, 0, 0.6);
-    }
-    .reactive-card-content{
-      opacity: 1;
-    }
-  }
-}
 
 .round-card{
   &:hover{

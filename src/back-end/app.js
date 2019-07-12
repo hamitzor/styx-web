@@ -9,6 +9,7 @@ import { notFound } from './controller/error-controller'
 import languageChecker from './middlewares/language-checker'
 import { isProduction } from './util/env-checker'
 
+
 const main = async () => {
   await loadContent()
 
@@ -18,13 +19,12 @@ const main = async () => {
   }
   app.use('/public', express.static(path.resolve(__dirname, '../src/front-end/public')))
   app.use(/\//, (req, res) => {
-    console.log(req.originalUrl)
     res.redirect('/tr/')
   })
   if (isProduction) {
     app.use('/:lang/', pageCacher())
   }
-  app.use('/:lang/', languageChecker(Object.keys(content.dils)))
+  app.use('/:lang/', languageChecker(Object.keys(content.dils), 'tr'))
   app.use('/:lang/', routes)
   app.use('*', notFound)
 

@@ -76,11 +76,6 @@
   .referans-card{
     height: 200px;
   }
-  .round-card{
-    &:hover{
-      font-size: 4rem;
-    }
-  }
   .offer-form-card {
     width: 100%;
   }
@@ -93,6 +88,11 @@
   }
 }
 @media (min-width: 992px) {
+  .round-card{
+    &:hover{
+      font-size: 4rem;
+    }
+  }
   .referans-card{
     width: 90%;
     height: 200px;

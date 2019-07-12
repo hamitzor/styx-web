@@ -17,7 +17,7 @@ const normalizeAll = async names => {
 }
 
 const loadContent = async () => {
-  await normalizeAll(['yazis', 'dils'])
+  await normalizeAll(['yazis', 'dils', 'sliders'])
   return content
 }
 

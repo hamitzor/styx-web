@@ -26,12 +26,12 @@
         <i class="lni-close size-lg"></i>
       </button>
       <div class="d-flex flex-column align-items-center justify-content-center">
-        <a href="#"><i class="lni-home mr-3"></i>{{trs yazis.layout_nav_anasayfa lang}}</a>
-        <div class="list-strip-20 mx-auto mb-2"></div>
-        <a class="nav-link" href="#"><i class="lni-apartment mr-3"></i>{{trs yazis.layout_nav_hakkimizda lang}}</a>
+        <a href="#"><i class="lni-apartment mr-3"></i>{{trs yazis.layout_nav_kurumsal lang}}</a>
         <div class="list-strip-20 mx-auto mb-2"></div>
         <button id="open-mobile-hizmetler" type="button" class="btn btn-link">
-          <i class="lni-laptop-phone mr-3"></i>{{trs yazis.layout_nav_urunlerimiz lang}}</button>
+          <i class="lni-laptop-phone mr-3"></i>{{trs yazis.layout_nav_hizmetler lang}}</button>
+        <div class="list-strip-20 mx-auto mb-2"></div>
+        <a class="nav-link" href="#"><i class="lni-users mr-3"></i>{{trs yazis.layout_nav_referanslar lang}}</a>
         <div class="list-strip-20 mx-auto mb-2"></div>
         <a class="nav-link" href="#"><i class="lni-phone mr-3"></i>{{trs yazis.layout_nav_iletisim lang}}</a>
         <div class="list-strip-20 mx-auto mb-2"></div>
@@ -77,14 +77,11 @@
             <div class="navbar-links-container">
               <ul class="navbar-links">
                 <li class="nav-item px-2">
-                  <a href="#">{{trs yazis.layout_nav_anasayfa lang}}</a>
-                </li>
-                <li class="nav-item px-2">
-                  <a href="#">{{trs yazis.layout_nav_hakkimizda lang}}</a>
+                  <a href="#">{{trs yazis.layout_nav_kurumsal lang}}</a>
                 </li>
                 <li class="nav-item menu-container pr-1">
                   <button role="link" type="button" class="btn btn-link dropdown-toggle menu-toggle" href="#">
-                    {{trs yazis.layout_nav_urunlerimiz lang}}
+                    {{trs yazis.layout_nav_hizmetler lang}}
                   </button>
                   <div class="menu" style="display: none">
                     <a class="menu-item" href="#">OBYS</a>
@@ -94,6 +91,9 @@
                     <a class="menu-item" href="#">Akıllı Ödeme Sistemi</a>
                     <a class="menu-item" href="#">ERP Sistemleri Entegrasyon</a>
                   </div>
+                </li>
+                <li class="nav-item px-2">
+                  <a href="#">{{trs yazis.layout_nav_referanslar lang}}</a>
                 </li>
                 <li class="nav-item px-2">
                   <a href="#">{{trs yazis.layout_nav_iletisim lang}}</a>
@@ -151,9 +151,6 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div>
-
           </div>
           {{#each scripts}}
           <script src="{{this}}"></script>

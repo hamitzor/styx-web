@@ -5,9 +5,25 @@ import { content } from './content-loader'
 import scripts from '../../front-end/js-page-map'
 import stylesheets from '../../front-end/css-page-map'
 
+hbs.registerHelper('eq', function (a, b, options) {
+  if (a === b) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+})
+
+hbs.registerHelper('notEq', function (a, b, options) {
+  if (a !== b) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+})
 
 hbs.registerHelper('trs', (obj, lang, key) => {
-  if (!key || typeof key != 'String') {
+  if (!obj) {
+    return '';
+  }
+  if (!key || typeof key != 'string') {
     key = 'deger'
   }
   if (!lang || lang === 'tr') {
@@ -21,6 +37,7 @@ hbs.registerHelper('trs', (obj, lang, key) => {
 const getView = view => fs.readFileSync(path.resolve(__dirname, '../src/front-end/views', `${view}.handlebars`), 'utf8')
 
 const renderToHtml = ({ view, viewContent = {}, layout = 'layout' }) => {
+
   const cssAndJsFiles = viewContent.cssAndJsFiles && viewContent.cssAndJsFiles.reduce((acc, key) => {
     return {
       scripts: [...acc.scripts, ...scripts[key]],

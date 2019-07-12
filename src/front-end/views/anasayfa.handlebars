@@ -2,29 +2,15 @@
   <div class="row">
     <div class="anasayfa-showcase col-12 col-lg-7 text-center text-lg-left">
       <div class="anasayfa-slider">
-        <div class="slider-item">
-          <h1 class="display-4 text-white font-weight-bold">OBYS İle Tasarruf Ederken Kazanın</h1>
-          <p class="lead text-white">Cari Operasyonlarınızı yönetirken manuel işlemlerden kurtulup, personel kaynaklı
-            hataları sıfıra indirin. İşemler daha hızlı ve güvenilir hale gelirken raporlarınız anlık iletilsin.
-          </p>
+        {{#each sliders.anasayfa_slider.metinler}}
+        <div class="slider-item {{#notEq @index 0}}slider-hidden-item{{/notEq}}">
+          <h1 class="display-4 text-white font-weight-bold">{{trs this @root.lang "baslik"}}</h1>
+          <p class="lead text-white">{{trs this @root.lang "icerik"}}</p>
         </div>
-
-        <div class="slider-item slider-hidden-item">
-          <h1 class="display-4 text-white font-weight-bold">Cari Yönetimi ve Limitlendirme</h1>
-          <p class="lead text-white">Akıllı Algoritma Yapısı ile sizin yerinize carileri yönetir, finansal durumlarını
-            kontrol eder, limitlendirme işlemlerini gerçekleştirir.
-          </p>
-        </div>
-
-        <div class="slider-item slider-hidden-item">
-          <h1 class="display-4 text-white font-weight-bold">Yönetim Kolaylığı</h1>
-          <p class="lead text-white">Akaryakıt Distribütörleri, carilerini daha kolay yönetip, OBYS'nin sunduğu akıllı
-            raporlama sistemleri ile üst düzey memnuniyet sağlar.</p>
-        </div>
+        {{/each}}
       </div>
-
       <p class="lead">
-        <a class="btn btn-success btn-lg px-4" href="#" role="button">Teklif Alın!</a>
+        <a class="btn btn-success btn-lg px-4" href="#" role="button">{{trs yazis.anasayfa_vitrin_teklif_alin lang}}</a>
       </p>
     </div>
   </div>
@@ -227,73 +213,69 @@
         <p class="text-muted">A sort of important subheading can go here, which is larger and</p>
       </div>
       <div class="col-md-6 col-lg-4 mb-3 mb-lg-4">
-        <a href="#" class="reactive-card referans-card">
+        <div class="reactive-card referans-card">
           <div class="reactive-card-background" style="background-image: url('/public/assets/musteriler/4.jpg')">
           </div>
           <p
             class="reactive-card-content text-white lead d-flex align-items-center justify-content-center font-weight-medium">
             Müşteri Açıklaması 1
           </p>
-        </a>
+        </div>
       </div>
       <div class="col-md-6 col-lg-4 mb-3 mb-lg-4">
-        <a href="#" class="reactive-card referans-card">
+        <div class="reactive-card referans-card">
           <div class="reactive-card-background" style="background-image: url('/public/assets/musteriler/7.jpg')">
           </div>
           <p
             class="reactive-card-content text-white lead d-flex align-items-center justify-content-center font-weight-medium">
             Müşteri Açıklaması 2
           </p>
-        </a>
+        </div>
       </div>
 
       <div class="col-md-6 col-lg-4 mb-3 mb-lg-4">
-        <a href="#" class="reactive-card referans-card">
+        <div class="reactive-card referans-card">
           <div class="reactive-card-background" style="background-image: url('/public/assets/musteriler/8.jpg')">
           </div>
           <p
             class="reactive-card-content text-white lead d-flex align-items-center justify-content-center font-weight-medium">
             Müşteri Açıklaması 3
           </p>
-        </a>
+        </div>
       </div>
 
       <div class="col-md-6 col-lg-4 mb-3 mb-lg-4">
-        <a href="#" class="reactive-card referans-card">
+        <div class="reactive-card referans-card">
           <div class="reactive-card-background" style="background-image: url('/public/assets/musteriler/2.jpg')">
           </div>
           <p
             class="reactive-card-content text-white lead d-flex align-items-center justify-content-center font-weight-medium">
             Müşteri Açıklaması 4
           </p>
-        </a>
+        </div>
       </div>
 
       <div class="col-md-6 col-lg-4 mb-3 mb-lg-4">
-        <a href="#" class="reactive-card referans-card">
+        <div class="reactive-card referans-card">
           <div class="reactive-card-background" style="background-image: url('/public/assets/musteriler/12.jpg')">
           </div>
           <p
             class="reactive-card-content text-white lead d-flex align-items-center justify-content-center font-weight-medium">
             Müşteri Açıklaması 5
           </p>
-        </a>
+        </div>
       </div>
 
       <div class="col-md-6 col-lg-4 mb-3 mb-lg-4">
-        <a href="#" class="reactive-card referans-card">
+        <div class="reactive-card referans-card">
           <div class="reactive-card-background" style="background-image: url('/public/assets/musteriler/13.jpg')">
           </div>
           <p
             class="reactive-card-content text-white lead d-flex align-items-center justify-content-center font-weight-medium">
             Müşteri Açıklaması 6
           </p>
-        </a>
+        </div>
       </div>
-
     </div>
-
-
-
   </div>
 </div>
