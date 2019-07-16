@@ -24,7 +24,7 @@ const main = async () => {
   if (isProduction) {
     app.use('/:lang/', pageCacher())
   }
-  app.use('/:lang/', languageChecker(Object.keys(content.dils), 'tr'))
+  app.use('/:lang/', languageChecker(Object.keys(content.diller), 'tr'))
   app.use('/:lang/', routes)
   app.use('*', notFound)
 

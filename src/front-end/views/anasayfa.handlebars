@@ -2,15 +2,18 @@
   <div class="row">
     <div class="anasayfa-showcase col-12 col-lg-7 text-center text-lg-left">
       <div class="anasayfa-slider">
-        {{#each sliders.anasayfa_slider.metinler}}
+        {{#each sliderlar.anasayfa_slider.metinler}}
         <div class="slider-item {{#notEq @index 0}}slider-hidden-item{{/notEq}}">
           <h1 class="display-4 text-white font-weight-bold">{{trs this @root.lang "baslik"}}</h1>
-          <p class="lead text-white">{{trs this @root.lang "icerik"}}</p>
+          <div class="lead text-white">
+            {{{markdown (trs this @root.lang "icerik")}}}
+          </div>
         </div>
         {{/each}}
       </div>
       <p class="lead">
-        <a class="btn btn-success btn-lg px-4" href="#" role="button">{{trs yazis.anasayfa_vitrin_teklif_alin lang}}</a>
+        <a class="btn btn-success btn-lg px-4" href="#"
+          role="button">{{trs yazilar.anasayfa_vitrin_teklif_alin lang}}</a>
       </p>
     </div>
   </div>
@@ -25,13 +28,13 @@
 <div class="offer-form-card-container container d-flex justify-content-end">
   <div class="card offer-form-card mb-4 text-white border-0 border-radius-3 overflow-hidden">
     <div class="card-body pb-3">
-      <h4 class="card-title">Teklif almak ister misiniz?</h4>
-      <p class="card-text ">Size özel en uygun web site teklifini ihtiyaçlarınıza göre hazırlayalım.</p>
+      <h4 class="card-title">{{trs formlar.anasayfa_teklif_form lang "baslik"}}</h4>
+      <p class="card-text ">{{trs formlar.anasayfa_teklif_form lang "aciklama"}}</p>
       <form action="#" method="POST" class="offer-form">
         <div class="col-12 p-0">
           <div class="input-group mb-2">
             <input type="text" class="form-control bg-transparent text-white " autocomplete="off"
-              id="validationCustomUsername" placeholder="Adınız soyadınız" required />
+              id="validationCustomUsername" placeholder="{{trs alanlar.ad_soyad lang "placeholder"}}" required />
             <div class="input-group-append">
               <span class="input-group-text  bg-transparent border-0 text-white">
                 <i class="lni-user"></i>
@@ -43,7 +46,7 @@
           </div>
           <div class="input-group mb-2">
             <input type="text" class="form-control bg-transparent text-white " autocomplete="off"
-              id="validationCustomUsername" placeholder="E-posta hesabınız" required />
+              id="validationCustomUsername" placeholder="{{trs alanlar.e_posta lang "placeholder"}}" required />
             <div class="input-group-append">
               <span class="input-group-text  bg-transparent border-0 text-white">
                 <i class="lni-envelope"></i>
@@ -55,7 +58,7 @@
           </div>
           <div class="input-group mb-2">
             <input type="text" class="form-control bg-transparent text-white " autocomplete="off"
-              id="validationCustomUsername" placeholder="Telefon numaranız" required />
+              id="validationCustomUsername" placeholder="{{trs alanlar.telefon lang "placeholder"}}" required />
             <div class="input-group-append">
               <span class="input-group-text  bg-transparent border-0 text-white">
                 <i class="lni-phone-handset"></i>
@@ -68,9 +71,9 @@
           <div class="input-group mb-2">
             <div class="topic">
               <select class="form-control bg-transparent">
-                <option selected value="Web Tasarım & Yazılım">Web Tasarım & Yazılım</option>
-                <option value="Web Yazılım">Web Yazılım</option>
-                <option value="SEO">SEO</option>
+                {{#each hizmetler}}
+                <option value="{{trs this @root.lang "isim"}}">{{trs this @root.lang "isim"}}</option>
+                {{/each}}
               </select>
               <div class="d-flex align-items-center justify-content-center p-2 bg-transparent border-0 text-white">
                 <i class="lni-target"></i>
@@ -79,7 +82,7 @@
           </div>
           <div class="input-group mb-2">
             <textarea rows="4" type=" text" class="form-control bg-transparent text-white " autocomplete="off"
-              id="validationCustomUsername" placeholder="Mesajınız" required></textarea>
+              id="validationCustomUsername" placeholder="{{trs alanlar.mesaj lang "placeholder"}}" required></textarea>
             <div class="input-group-append">
               <span class="input-group-text  bg-transparent border-0 text-white">
                 <i class="lni-pencil-alt"></i>
@@ -93,7 +96,7 @@
       </form>
     </div>
     <button class="btn btn-primary w-100 py-3 border-0 btn-lg border-radius-0">
-      Şimdi Gönder
+      {{trs alanlar.gonder lang "etiket"}}
     </button>
   </div>
 </div>
@@ -106,176 +109,72 @@
     <div class="row my-3 my-lg-5">
       <div class="col-sm-12 col-lg-7 text-sm-center text-lg-left my-2">
 
-        <h2>An important heading</h2>
-        <p class="lead">A sort of important subheading can go here, which is larger and gray.</p>
+        <h2>{{trs urunler.obys lang "baslik"}}</h2>
+        <p class="lead">{{trs urunler.obys lang "alt_baslik"}}</p>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur.</p>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <p>{{{trs urunler.obys lang "aciklama"}}}</p>
       </div>
 
       <div class="col-sm-12 col-lg-5">
-        <img class="w-100" src="/public/assets/grids/16.png">
+        <img class="w-100" src="{{cmsRoot}}{{img urunler.obys lang}}">
       </div>
     </div>
 
     <div class="row my-3 my-lg-5">
       <div class="col-sm-12 col-lg-5">
-        <img class="w-100" src="/public/assets/grids/10.jpg">
+        <img class="w-100" src="{{cmsRoot}}{{img urunler.aosis lang}}">
       </div>
       <div class="col-sm-12 col-lg-7 text-sm-center text-lg-left my-3">
 
-        <h2>An important heading</h2>
-        <p class="lead">A sort of important subheading can go here, which is larger and gray.</p>
+        <h2>{{trs urunler.aosis lang "baslik"}}</h2>
+        <p class="lead">{{trs urunler.aosis lang "alt_baslik"}}</p>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur.</p>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <p>{{{trs urunler.aosis lang "aciklama"}}}</p>
       </div>
     </div>
 
     <div class="row my-3 my-lg-5 text-center  text-dark">
       <div class="col-12  mb-4">
-        <h3 class="text-center">HİZMETLERİMİZ</h3>
+        <h3 class="text-center">{{trs yazilar.anasayfa_urunler_baslik lang}}</h3>
         <div class="section-strip-30 mx-auto"></div>
         <p class="text-muted">
-          A sort of important subheading can go here, which is larger and
+          {{trs yazilar.anasayfa_urunler_alt_baslik lang}}
         </p>
       </div>
+
+      {{#each urunler}}
       <div class="col-md-4 col-lg-2">
         <a href="#" class="round-card mx-auto mb-3">
-          <i class="lni-bar-chart text-success"></i>
+          {{{this.ikon}}}
         </a>
-        <h5>OBYS</h5>
+        <h5>{{trs this @root.lang "isim"}}</h5>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua
+          {{trs this @root.lang "alt_baslik"}}
         </p>
       </div>
-      <div class="col-md-4 col-lg-2">
-        <a href="#" class="round-card mx-auto mb-3">
-          <i class="lni-clipboard text-primary"></i>
-        </a>
-        <h5>OMYS</h5>
-        <p>
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        </p>
-      </div>
-      <div class="col-md-4 col-lg-2">
-        <a href="#" class="round-card mx-auto mb-3">
-          <i class="lni-customer text-dark"></i>
-        </a>
-        <h5>AOSİS</h5>
-        <p>
-          Duis aute irure dolor in reprehenderit in voluptate
-        </p>
-      </div>
-      <div class="col-md-4 col-lg-2">
-        <a href="#" class="round-card mx-auto mb-3">
-          <i class="lni-coin text-warning"></i>
-        </a>
-        <h5>E-Tahsilat</h5>
-        <p>
-          A sort of important subheading can go here, which is larger and
-        </p>
-      </div>
-      <div class="col-md-4 col-lg-2">
-        <a href="#" class="round-card mx-auto mb-3">
-          <i class="lni-cart text-muted"></i>
-        </a>
-        <h5>Akıllı Ödeme Sistemi</h5>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        </p>
-      </div>
-      <div class="col-md-4 col-lg-2">
-        <a href="#" class="round-card mx-auto mb-3">
-          <i class="lni-link text-danger"></i>
-        </a>
-        <h5>ERP Sistemleri Entegrasyon</h5>
-        <p>
-          A sort of important subheading can go here, which is larger and
-        </p>
-      </div>
+      {{/each}}
 
     </div>
 
     <div class="row my-5 my-lg-4 text-center  text-dark">
       <div class="col-12 mb-4">
-        <h3 class="text-center">REFERANSLARIMIZ</h3>
+        <h3 class="text-center">{{trs yazilar.anasayfa_referanslar_baslik lang}}</h3>
         <div class="section-strip-30 mx-auto"></div>
-        <p class="text-muted">A sort of important subheading can go here, which is larger and</p>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-3 mb-lg-4">
-        <div class="reactive-card referans-card">
-          <div class="reactive-card-background" style="background-image: url('/public/assets/musteriler/4.jpg')">
-          </div>
-          <p
-            class="reactive-card-content text-white lead d-flex align-items-center justify-content-center font-weight-medium">
-            Müşteri Açıklaması 1
-          </p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 mb-3 mb-lg-4">
-        <div class="reactive-card referans-card">
-          <div class="reactive-card-background" style="background-image: url('/public/assets/musteriler/7.jpg')">
-          </div>
-          <p
-            class="reactive-card-content text-white lead d-flex align-items-center justify-content-center font-weight-medium">
-            Müşteri Açıklaması 2
-          </p>
-        </div>
+        <p class="text-muted">{{trs yazilar.anasayfa_referanslar_alt_baslik lang}}</p>
       </div>
 
-      <div class="col-md-6 col-lg-4 mb-3 mb-lg-4">
-        <div class="reactive-card referans-card">
-          <div class="reactive-card-background" style="background-image: url('/public/assets/musteriler/8.jpg')">
+      {{#each referanslar}}
+      <div class="col-6 col-md-4 col-lg-3 mb-3 mb-lg-4">
+        <a href="#" class="reactive-card referans-card">
+          <div class="reactive-card-background" style="background-image: url('{{cmsRoot}}{{this.gorseller.0.url}}')">
           </div>
           <p
             class="reactive-card-content text-white lead d-flex align-items-center justify-content-center font-weight-medium">
-            Müşteri Açıklaması 3
+            {{trs this @root.lang "isim"}}
           </p>
-        </div>
+        </a>
       </div>
-
-      <div class="col-md-6 col-lg-4 mb-3 mb-lg-4">
-        <div class="reactive-card referans-card">
-          <div class="reactive-card-background" style="background-image: url('/public/assets/musteriler/2.jpg')">
-          </div>
-          <p
-            class="reactive-card-content text-white lead d-flex align-items-center justify-content-center font-weight-medium">
-            Müşteri Açıklaması 4
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4 mb-3 mb-lg-4">
-        <div class="reactive-card referans-card">
-          <div class="reactive-card-background" style="background-image: url('/public/assets/musteriler/12.jpg')">
-          </div>
-          <p
-            class="reactive-card-content text-white lead d-flex align-items-center justify-content-center font-weight-medium">
-            Müşteri Açıklaması 5
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4 mb-3 mb-lg-4">
-        <div class="reactive-card referans-card">
-          <div class="reactive-card-background" style="background-image: url('/public/assets/musteriler/13.jpg')">
-          </div>
-          <p
-            class="reactive-card-content text-white lead d-flex align-items-center justify-content-center font-weight-medium">
-            Müşteri Açıklaması 6
-          </p>
-        </div>
-      </div>
+      {{/each}}
     </div>
   </div>
 </div>

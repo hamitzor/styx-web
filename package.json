@@ -6,13 +6,15 @@
   "scripts": {
     "start": "nodemon -r source-map-support/register dist/server.bundle.js",
     "start-gulp": "gulp",
-    "watch": "webpack --mode development"
+    "watch": "webpack --mode development",
+    "build": "webpack --mode production"
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
     "compression": "^1.7.4",
     "handlebars": "^4.1.2",
     "popper.js": "^1.15.0",
+    "showdown": "^1.9.0",
     "strapi-sdk-javascript": "^0.3.1"
   },
   "devDependencies": {

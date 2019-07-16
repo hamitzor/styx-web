@@ -4,6 +4,35 @@ import hbs from 'handlebars'
 import { content } from './content-loader'
 import scripts from '../../front-end/js-page-map'
 import stylesheets from '../../front-end/css-page-map'
+import config from '../util/config-loader'
+import showdown from 'showdown'
+
+hbs.registerHelper('img', function (obj, lang, key) {
+  if (!obj) {
+    return '';
+  }
+  if (!key || typeof key != 'string') {
+    key = 'gorseller'
+  }
+  if (!lang || lang === 'tr') {
+    let img = obj[key]
+    if (Array.isArray(img)) {
+      img = obj[key][0]
+    }
+    return img.url
+  }
+  else {
+    let img = obj[`${key}_${lang}`]
+    if (Array.isArray(img)) {
+      img = obj[`${key}_${lang}`][0]
+    }
+    return img.url
+  }
+})
+
+hbs.registerHelper('cmsRoot', function () {
+  return `${config.cms_port === 443 ? "https" : "http"}://${config.cms_hostname}:${config.cms_port}`
+})
 
 hbs.registerHelper('eq', function (a, b, options) {
   if (a === b) {
@@ -32,6 +61,12 @@ hbs.registerHelper('trs', (obj, lang, key) => {
   else {
     return obj[`${key}_${lang}`]
   }
+})
+
+hbs.registerHelper('markdown', function (text) {
+  const converter = new showdown.Converter()
+  const html = converter.makeHtml(text)
+  return html
 })
 
 const getView = view => fs.readFileSync(path.resolve(__dirname, '../src/front-end/views', `${view}.handlebars`), 'utf8')

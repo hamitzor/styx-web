@@ -5,7 +5,7 @@
   <title>{{title}}</title>
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel='shortcut icon' type='image/x-icon' href='/public/assets/favicon.ico' />
+  <link rel='shortcut icon' type='image/x-icon' href='{{cmsRoot}}{{gorseller.favicon.kaynak.url}}' />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800">
   <link rel="stylesheet" href="https://cdn.lineicons.com/1.0.1/LineIcons.min.css">
 
@@ -26,48 +26,41 @@
         <i class="lni-close size-lg"></i>
       </button>
       <div class="d-flex flex-column align-items-center justify-content-center">
-        <a href="#"><i class="lni-apartment mr-3"></i>{{trs yazis.layout_nav_kurumsal lang}}</a>
+        <a class="white-link" href="#"><i class="lni-apartment mr-3"></i>{{trs yazilar.layout_nav_kurumsal lang}}</a>
         <div class="list-strip-20 mx-auto mb-2"></div>
-        <button id="open-mobile-hizmetler" type="button" class="btn btn-link">
-          <i class="lni-laptop-phone mr-3"></i>{{trs yazis.layout_nav_hizmetler lang}}</button>
+        <button id="open-mobile-urunler" type="button" class="btn btn-link">
+          <i class="lni-laptop-phone mr-3"></i>{{trs yazilar.layout_nav_urunler lang}}</button>
         <div class="list-strip-20 mx-auto mb-2"></div>
-        <a class="nav-link" href="#"><i class="lni-users mr-3"></i>{{trs yazis.layout_nav_referanslar lang}}</a>
+        <a class="white-link" href="#"><i class="lni-users mr-3"></i>{{trs yazilar.layout_nav_referanslar lang}}</a>
         <div class="list-strip-20 mx-auto mb-2"></div>
-        <a class="nav-link" href="#"><i class="lni-phone mr-3"></i>{{trs yazis.layout_nav_iletisim lang}}</a>
+        <a class="white-link" href="#"><i class="lni-phone mr-3"></i>{{trs yazilar.layout_nav_iletisim lang}}</a>
         <div class="list-strip-20 mx-auto mb-2"></div>
         <a class="btn btn-primary px-3 mt-3 ml-0 ml-lg-3" href="#"
-          role="button">{{trs yazis.layout_nav_teklif lang}}</a>
+          role="button">{{trs yazilar.layout_nav_teklif lang}}</a>
       </div>
     </div>
   </div>
-  <div id="mobile-hizmetler" class="mobile-popup mobile-hizmetler" style="top: 700px; opacity: 0; display: none;">
+  <div id="mobile-urunler" class="mobile-popup mobile-urunler" style="top: 700px; opacity: 0; display: none;">
     <div class="position-relative d-flex w-100 justify-content-center">
-      <button id="close-mobile-hizmetler" type="button" class="btn btn-link position-absolute close-menu">
+      <button id="close-mobile-urunler" type="button" class="btn btn-link position-absolute close-menu">
         <i class="lni-close size-lg"></i>
       </button>
       <div class="d-flex flex-column align-items-center justify-content-center">
-        <a href="#">OBYS</a>
+        {{#each urunler}}
+        <a class="white-link" href="#">{{trs this @root.lang "isim"}}</a>
         <div class="list-strip-20 mx-auto mb-2"></div>
-        <a href="#">OMYS</a>
-        <div class="list-strip-20 mx-auto mb-2"></div>
-        <a href="#">AOSİS</a>
-        <div class="list-strip-20 mx-auto mb-2"></div>
-        <a href="#">E-Tahsilat</a>
-        <div class="list-strip-20 mx-auto mb-2"></div>
-        <a href="#">Akıllı Ödeme Sistemi</a>
-        <div class="list-strip-20 mx-auto mb-2"></div>
-        <a href="#">ERP Sistemleri Entegrasyon</a>
-        <div class="list-strip-20 mx-auto mb-2"></div>
+        {{/each}}
       </div>
     </div>
   </div>
   <div class="header-container position-relative">
-    <div id="stellar-header" class="header">
+    <div id="stellar-header" class="header"
+      style="background-image: url('{{cmsRoot}}{{img gorseller.anasayfa_baslik_gorseli lang "kaynak"}}')">
       <div class="black-cover position-relative">
         <div class="container pt-3 mb-5 position-relative">
           <nav class="navbar navbar-expand-lg navbar-dark navbar-custom p-0 p-md-2">
 
-            <a class="navbar-brand" href="#">{{trs yazis.layout_logo lang}}</a>
+            <a class="navbar-brand white-link" href="#">{{trs yazilar.styx_logo lang}}</a>
 
             <!--Add here -->
             <button id="open-mobile-navbar" class="navbar-toggler" type="button">
@@ -76,31 +69,28 @@
             <!--Add here -->
             <div class="navbar-links-container">
               <ul class="navbar-links">
-                <li class="nav-item px-2">
-                  <a href="#">{{trs yazis.layout_nav_kurumsal lang}}</a>
+                <li class="nav-item px-3 text-center">
+                  <a class="white-link" href="#">{{trs yazilar.layout_nav_kurumsal lang}}</a>
                 </li>
                 <li class="nav-item menu-container pr-1">
-                  <button role="link" type="button" class="btn btn-link dropdown-toggle menu-toggle" href="#">
-                    {{trs yazis.layout_nav_hizmetler lang}}
+                  <button role="link" type="button" class="btn btn-link dropdown-toggle menu-toggle p-0" href="#">
+                    {{trs yazilar.layout_nav_urunler lang}}
                   </button>
                   <div class="menu" style="display: none">
-                    <a class="menu-item" href="#">OBYS</a>
-                    <a class="menu-item" href="#">OMYS</a>
-                    <a class="menu-item" href="#">AOSİS</a>
-                    <a class="menu-item" href="#">E-Tahsilat</a>
-                    <a class="menu-item" href="#">Akıllı Ödeme Sistemi</a>
-                    <a class="menu-item" href="#">ERP Sistemleri Entegrasyon</a>
+                    {{#each urunler}}
+                    <a class="menu-item" href="#">{{trs this @root.lang "isim"}}</a>
+                    {{/each}}
                   </div>
                 </li>
-                <li class="nav-item px-2">
-                  <a href="#">{{trs yazis.layout_nav_referanslar lang}}</a>
+                <li class="nav-item px-3">
+                  <a class="white-link" href="#">{{trs yazilar.layout_nav_referanslar lang}}</a>
                 </li>
-                <li class="nav-item px-2">
-                  <a href="#">{{trs yazis.layout_nav_iletisim lang}}</a>
+                <li class="nav-item px-3">
+                  <a class="white-link" href="#">{{trs yazilar.layout_nav_iletisim lang}}</a>
                 </li>
                 <li class="nav-item">
                   <a class="btn btn-primary px-3 ml-0 ml-lg-3" href="#"
-                    role="button">{{trs yazis.layout_nav_teklif lang}}</a>
+                    role="button">{{trs yazilar.layout_nav_teklif lang}}</a>
                 </li>
               </ul>
             </div>
@@ -110,44 +100,39 @@
             <div class="footer container py-3">
               <div class="row text-center text-md-left">
                 <div class="col-md-4 py-2 py-md-4 px-1 px-md-3">
-                  <h3>{{trs yazis.layout_logo lang}}</h3>
-                  <p>Ostim OSB Mahallesi
-                    1213. Sokak 1/1
-                    Yenimahalle / Ankara
-                  </p>
+                  <h3>{{trs yazilar.styx_logo lang}}</h3>
+                  <p>{{trs yazilar.styx_adres lang}}</p>
                   <p>
                     <i class="lni-phone-handset mr-2"></i>
-                    +90 0532 725 70 57
+                    {{trs yazilar.styx_tel lang}}
                   </p>
                   <p>
                     <i class="lni-envelope mr-2"></i>
-                    <a href="mailto:bilgi@styxyazilim.com">bilgi@styxyazilim.com</a>
+                    <a class="white-link" href="mailto:bilgi@styxyazilim.com">{{trs yazilar.styx_eposta lang}}</a>
                   </p>
                 </div>
                 <div class="col-md-4 py-2 py-md-4 px-1 px-md-3">
-                  <h5 class="footer-section-title"><a href="#">HİZMETLER</a></h5>
+                  <h5 class="footer-section-title"><a class="white-link"
+                      href="#">{{trs yazilar.layout_nav_urunler lang}}</a></h5>
                   <div class="section-strip-50 mx-auto mx-md-0"></div>
-                  <div class="mb-1 lead"><a href="#">OBYS</a></div>
-                  <div class="mb-1"><a href="#">OMYS</a></div>
-                  <div class="mb-1"><a href="#">AOSİS</a></div>
-                  <div class="mb-1"><a href="#">E-Tahsilat</a></div>
-                  <div class="mb-1"><a href="#">Akıllı Ödeme Sistemi</a></div>
-                  <div class="mb-1"><a href="#">ERP Sistemleri Entegrasyon</a></div>
+                  {{#each urunler}}
+                  <div class="mb-1"><a class="white-link" href="#">{{trs this @root.lang "isim"}}</a></div>
+                  {{/each}}
                 </div>
                 <div class="col-md-4 py-2 py-md-4 px-1 px-md-3">
-                  <h5 class="footer-section-title">KISAYOLLAR</h5>
+                  <h5 class="footer-section-title">{{trs yazilar.layout_nav_kisayollar lang}}</h5>
                   <div class="section-strip-50 mx-auto mx-md-0"></div>
-                  <div class="mb-1"><a href="#">Kurumsal</a></div>
-                  <div class="mb-1"><a href="#">Hizmetler</a></div>
-                  <div class="mb-1"><a href="#">Referanslar</a></div>
-                  <div class="mb-1"><a href="#">İletişim</a></div>
+                  <div class="mb-1"><a class="white-link" href="#">{{trs yazilar.layout_nav_kurumsal lang}}</a></div>
+                  <div class="mb-1"><a class="white-link" href="#">{{trs yazilar.layout_nav_urunler lang}}</a></div>
+                  <div class="mb-1"><a class="white-link" href="#">{{trs yazilar.layout_nav_referanslar lang}}</a></div>
+                  <div class="mb-1"><a class="white-link" href="#">{{trs yazilar.layout_nav_iletisim lang}}</a></div>
                 </div>
               </div>
             </div>
             <div class="copyright bg-black">
               <div class="container py-2">
                 <div class="row">
-                  <div class="col-12 text-center font-weight-bold">© Styx Yazılım Hizmetleri Sanayi ve Ticaret A.Ş</div>
+                  <div class="col-12 text-center font-weight-bold">{{trs yazilar.styx_telif_hakki lang}}</div>
                 </div>
               </div>
             </div>

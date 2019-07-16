@@ -158,7 +158,8 @@ div.slider{
     z-index: $menu-z;
     width: max-content;
     position: absolute;
-    top:calc( 100% + 0.1rem );
+    top:calc( 100% + 0.7rem );
+    left: -0.4rem;
     background-color: map-get($grays, "100");
     display: flex;
     flex-direction: column;
@@ -178,13 +179,12 @@ div.slider{
 }
 
 .header {
-  background-image: url('/public/assets/anasayfa-background.jpg');
   background-size: 320%;
   background-position: 0 -50px;
   background-attachment: fixed;
   background-repeat: no-repeat;
   .black-cover {
-    background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+    background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
     width: 100%;
     overflow: hidden;
   }
@@ -203,12 +203,24 @@ textarea {
 }
 
 a{
-  color: map-get($grays, "100");
+  color: $link-color;
   text-decoration: none;
   transition: color $color-transition-duration;
   &:hover{
-    color: map-get($theme-colors, "primary");
+    color: lighten($link-color,15%);
     text-decoration: none;
+  }
+  &.dark-link{
+    color: map-get($grays, "900");
+    &:hover{
+      color: map-get($grays, "600");
+    }
+  }
+  &.white-link{
+    color: map-get($grays, "100");
+    &:hover{
+      color: map-get($grays, "400");
+    }
   }
 }
 
@@ -216,6 +228,7 @@ button.btn{
   &.btn-link{
     color: map-get($grays, "200");
     text-decoration: none;
+    vertical-align: initial
   }
 }
 

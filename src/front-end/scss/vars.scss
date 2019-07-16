@@ -1,5 +1,7 @@
+$theme-primary-color:#0077ff;
+
 $theme-colors: (
-  "primary": #0077ff
+  "primary": $theme-primary-color
 );
 $body-bg: #fbfbfb;
 
@@ -9,3 +11,4 @@ $menu-z:2000;
 $showcase-z:1000;
 $color-transition-duration: 150ms;
 $reactive-card-content-z:900;
+$link-color: #ffc400;
