@@ -7,6 +7,8 @@ import stylesheets from '../../front-end/css-page-map'
 import config from '../util/config-loader'
 import showdown from 'showdown'
 
+const cmsRoot = `${config.cms_port === 443 ? "https" : "http"}://${config.cms_hostname}:${config.cms_port}`
+
 hbs.registerHelper('img', function (obj, lang, key) {
   if (!obj) {
     return '';
@@ -31,7 +33,7 @@ hbs.registerHelper('img', function (obj, lang, key) {
 })
 
 hbs.registerHelper('cmsRoot', function () {
-  return `${config.cms_port === 443 ? "https" : "http"}://${config.cms_hostname}:${config.cms_port}`
+  return cmsRoot
 })
 
 hbs.registerHelper('eq', function (a, b, options) {
@@ -64,6 +66,16 @@ hbs.registerHelper('trs', (obj, lang, key) => {
 })
 
 hbs.registerHelper('markdown', function (text) {
+  const imgRegex = /\!\[[^\[\]]*\]\(([^\(\)]*)\)/g
+  let matches = null
+  do {
+    matches = imgRegex.exec(text)
+    if (matches) {
+      text = text.replace(matches[1], `${cmsRoot}${matches[1]}`)
+    }
+
+  } while (matches)
+
   const converter = new showdown.Converter()
   const html = converter.makeHtml(text)
   return html

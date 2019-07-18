@@ -27,50 +27,52 @@
 </div>
 <div class="offer-form-card-container container d-flex justify-content-end">
   <div class="card offer-form-card mb-4 text-white border-0 border-radius-3 overflow-hidden">
+    <div class="sent-successfully" style="display:none">
+      <button type="button" class="btn btn-link close-btn">
+        <i class="lni-close size-lg"></i>
+      </button>
+      <i class="lni-check-mark-circle"></i>
+      <div>Mesajınız başarı ile ulaştı, en yakın zamanda geri dönüş yapacağız!</div>
+    </div>
     <div class="card-body pb-3">
       <h4 class="card-title">{{trs formlar.anasayfa_teklif_form lang "baslik"}}</h4>
       <p class="card-text ">{{trs formlar.anasayfa_teklif_form lang "aciklama"}}</p>
-      <form action="#" method="POST" class="offer-form">
+      <form id="teklif-form" action="/{{lang}}/ajax/teklif-al" method="POST" class="offer-form">
         <div class="col-12 p-0">
           <div class="input-group mb-2">
-            <input type="text" class="form-control bg-transparent text-white " autocomplete="off"
-              id="validationCustomUsername" placeholder="{{trs alanlar.ad_soyad lang "placeholder"}}" required />
+            <input data-validation-msg="Lütfen adınızı ve soyadınızı giriniz" name="ad_soyad" type="text"
+              class="form-control bg-transparent text-white " autocomplete="nofill"
+              placeholder="{{trs alanlar.ad_soyad lang "placeholder"}} *" />
             <div class="input-group-append">
               <span class="input-group-text  bg-transparent border-0 text-white">
                 <i class="lni-user"></i>
               </span>
             </div>
-            <div class="invalid-feedback">
-              Please choose a username.
-            </div>
           </div>
           <div class="input-group mb-2">
-            <input type="text" class="form-control bg-transparent text-white " autocomplete="off"
-              id="validationCustomUsername" placeholder="{{trs alanlar.e_posta lang "placeholder"}}" required />
+            <input data-validation-msg="Lütfen geçerli bir E-posta adresi giriniz" name="e_posta" type="text"
+              class="form-control bg-transparent text-white " autocomplete="nofill"
+              placeholder="{{trs alanlar.e_posta lang "placeholder"}} *" />
             <div class="input-group-append">
               <span class="input-group-text  bg-transparent border-0 text-white">
                 <i class="lni-envelope"></i>
               </span>
             </div>
-            <div class="invalid-feedback">
-              Please choose a username.
-            </div>
           </div>
           <div class="input-group mb-2">
-            <input type="text" class="form-control bg-transparent text-white " autocomplete="off"
-              id="validationCustomUsername" placeholder="{{trs alanlar.telefon lang "placeholder"}}" required />
+            <input data-mask="0000 000 00 00"
+              data-validation-msg="Lütfen numaranızı 0&times;&times;&times; &times;&times;&times; &times;&times; &times;&times; şeklinde giriniz"
+              name="telefon" type="text" class="form-control bg-transparent text-white " autocomplete="nofill"
+              placeholder="{{trs alanlar.telefon lang "placeholder"}}" />
             <div class="input-group-append">
               <span class="input-group-text  bg-transparent border-0 text-white">
                 <i class="lni-phone-handset"></i>
               </span>
             </div>
-            <div class="invalid-feedback">
-              Please choose a username.
-            </div>
           </div>
           <div class="input-group mb-2">
             <div class="topic">
-              <select class="form-control bg-transparent">
+              <select name="hizmet" class="form-control bg-transparent">
                 {{#each hizmetler}}
                 <option value="{{trs this @root.lang "isim"}}">{{trs this @root.lang "isim"}}</option>
                 {{/each}}
@@ -81,21 +83,20 @@
             </div>
           </div>
           <div class="input-group mb-2">
-            <textarea rows="4" type=" text" class="form-control bg-transparent text-white " autocomplete="off"
-              id="validationCustomUsername" placeholder="{{trs alanlar.mesaj lang "placeholder"}}" required></textarea>
+            <textarea data-no-enter-submit="true" data-validation-msg="Lütfen mesajınızı giriniz" name="mesaj" rows="4"
+              type=" text" class="form-control bg-transparent text-white " autocomplete="nofill"
+              placeholder="{{trs alanlar.mesaj lang "placeholder"}} *"></textarea>
             <div class="input-group-append">
               <span class="input-group-text  bg-transparent border-0 text-white">
                 <i class="lni-pencil-alt"></i>
               </span>
             </div>
-            <div class="invalid-feedback">
-              Please choose a username.
-            </div>
           </div>
         </div>
       </form>
     </div>
-    <button class="btn btn-primary w-100 py-3 border-0 btn-lg border-radius-0">
+    <button data-submit-form="#teklif-form" type="submit"
+      class="btn btn-primary w-100 py-3 border-0 btn-lg border-radius-0 loading">
       {{trs alanlar.gonder lang "etiket"}}
     </button>
   </div>
