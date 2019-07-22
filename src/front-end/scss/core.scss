@@ -220,7 +220,6 @@ div.slider{
   .black-cover {
     background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
     width: 100%;
-    overflow: hidden;
   }
 }
 
@@ -414,7 +413,7 @@ button.btn{
     border-right: 1920px solid transparent;
   }
   &-right {
-    left: 600px;
+    right: 0;
     border-right: 0px solid transparent;
     border-left: 0 solid transparent;
   }

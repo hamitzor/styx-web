@@ -26,7 +26,11 @@ function getValidationMessages($form) {
   $form.find('[name]').each(function (i, el) {
     const $el = $(el)
     const name = $el.attr('name')
-    messages[name] = $el.data('validation-msg')
+    messages[name] = {
+      required: $el.data('validation-required-msg'),
+      email: $el.data('validation-email-msg'),
+      pattern: $el.data('validation-pattern-msg')
+    }
   })
   return messages
 }

@@ -25,20 +25,50 @@
     height: 0;
     border-bottom: 60px solid $body-bg;
   }
-  &-left {
-    left:600px;
+  &-right {
+    right:0;
     border-left: 1320px solid transparent;
     border-right: 0px solid transparent;
   }
-  &-right {
+  &-left {
     left: 0px;
-    border-right: 600px solid transparent;
+    border-right: 320px solid transparent;
     border-left: 0px solid transparent;
   }
 }
 
 .offer-form-card {
   background-color: transparent;
+  div.feedback-message{
+    i{
+      font-size:10rem;
+    }
+    button.close-btn{
+      position: absolute;
+      top:10px;
+      right:0;
+    };
+    z-index: $validation-z + 1;
+    position: absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    color: white;
+    text-align: center;
+    font-size:1.6rem;
+    padding: 1rem 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  div.sent-successfully{
+    background-color: #28a745;
+  }
+  div.not-sent{
+    background-color: #745656;
+  }
   .card-body {
     background-color: rgba(0, 0, 0, 0.89);
   }
@@ -74,6 +104,12 @@
   .header {
     background-size: 210%;
   }
+
+  .half-triangle {
+    &-left {
+      border-right: 600px solid transparent;
+    }
+  }
 }
 @media (min-width: 768px) {
   .offer-form-card {
@@ -102,31 +138,6 @@
   }
   .offer-form-card {
     width: 350px;
-    .sent-successfully{
-      i{
-        font-size:10rem;
-      }
-      button.close-btn{
-        position: absolute;
-        top:10px;
-        right:0;
-      };
-      z-index: $showcase-z - 50;
-      position: absolute;
-      top:0;
-      bottom:0;
-      right:0;
-      left:0;
-      background-color: #28a745;
-      color: white;
-      text-align: center;
-      font-size:2rem;
-      padding: 1rem 4rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
     .card-body {
       background-color: rgba(0, 0, 0, 0.75);
     }

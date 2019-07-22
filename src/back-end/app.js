@@ -8,7 +8,7 @@ import { loadContent, content } from './util/content-loader'
 import { notFound } from './controller/error-controller'
 import languageChecker from './middlewares/language-checker'
 import { isProduction } from './util/env-checker'
-
+import createProductRouter from './routes/product-router'
 
 const main = async () => {
   await loadContent()
@@ -26,7 +26,8 @@ const main = async () => {
   }
   app.use('/:lang/', languageChecker(Object.keys(content.diller), 'tr'))
   app.use('/:lang/', routes)
-  app.use('*', notFound)
+  app.use('/:lang/urunler', createProductRouter())
+  app.use('/:lang/*', notFound)
 
   const { hostname, port } = config
   app.listen(port, hostname, () => console.log(`Online at http://${hostname}:${port}`))

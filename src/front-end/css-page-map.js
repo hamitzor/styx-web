@@ -7,5 +7,7 @@ module.exports = {
     '/public/min.css/slick.min.css'
   ],
   iletisim: [],
-  error: []
+  notFound: [
+    '/public/min.css/not-found.min.css'
+  ]
 }

@@ -1,0 +1,32 @@
+div.error-info-container{
+  margin-top:4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  div.error-info{
+    display: inline-block;
+    padding-top:4rem;
+    color:white;
+    background-color: rgba(0,0,0,0.6);
+    max-width: 400px;
+    font-size: 2rem;
+    div.error-code{
+      font-size: 10rem;
+      padding: 0 4rem;
+    }
+    
+    div.error-message{
+      padding: 0 4rem 
+    }
+
+    div.return-home{
+      margin-top:5rem;
+      a{
+        font-size: 2rem;
+        border-radius: 0;
+        width: 100%;
+      }
+    }
+  }
+}

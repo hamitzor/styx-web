@@ -44,4 +44,16 @@ const loadContent = async () => {
   return content
 }
 
-export { content, loadContent }
+const translate = (obj, lang, key = "deger") => {
+  if (!obj) {
+    return '';
+  }
+  if (!lang || lang === 'tr') {
+    return obj[key]
+  }
+  else {
+    return obj[`${key}_${lang}`]
+  }
+}
+
+export { content, loadContent, strapi, translate }

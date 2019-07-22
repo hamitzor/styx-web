@@ -1,7 +1,7 @@
 import path from 'path'
 import fs from 'fs'
 import hbs from 'handlebars'
-import { content } from './content-loader'
+import { content, translate } from './content-loader'
 import scripts from '../../front-end/js-page-map'
 import stylesheets from '../../front-end/css-page-map'
 import config from '../util/config-loader'
@@ -51,18 +51,10 @@ hbs.registerHelper('notEq', function (a, b, options) {
 })
 
 hbs.registerHelper('trs', (obj, lang, key) => {
-  if (!obj) {
-    return '';
-  }
   if (!key || typeof key != 'string') {
     key = 'deger'
   }
-  if (!lang || lang === 'tr') {
-    return obj[key]
-  }
-  else {
-    return obj[`${key}_${lang}`]
-  }
+  return translate(obj, lang, key)
 })
 
 hbs.registerHelper('markdown', function (text) {
