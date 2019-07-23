@@ -6,6 +6,7 @@ const createProductController = data => async (req, res) => {
   const html = renderToHtml({
     view: 'urun',
     viewContent: {
+      urun: data,
       cssAndJsFiles: ['common'],
       lang,
       title: data.isim

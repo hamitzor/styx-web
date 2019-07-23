@@ -7,26 +7,24 @@
 </div>
 </div>
 
-<div class="body-container" style="height: 1000px">
+<div class="my-3 my-lg-5 py-lg-3">
 
-  <div class="container">
+  <div class="container py-lg-4 my-lg-4">
 
-    <div class="row mt-sm-4 mt-md-0">
-      <div class="col-sm-12 col-lg-7 text-sm-center text-lg-left">
+    <div class="row">
+      <div class="col-12 col-lg-7">
 
-        <h2>ÜRÜN</h2>
-        <p class="lead">A sort of important subheading can go here, which is larger and gray.</p>
+        <h1>{{trs urun lang "baslik"}}</h1>
+        <div class="section-strip-30 "></div>
+        <h3>{{trs urun lang "alt_baslik"}}</h3>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur.</p>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <div>
+          {{{markdown (trs urun lang "aciklama")}}}
+        </div>
       </div>
 
-      <div class="col-sm-12 col-lg-5"
-        style="background-image: url('/assets/grids/1.jpg');background-repeat: no-repeat;background-size: 100% 100%">
+      <div class="col-12 col-lg-5 mb-5 mb-lg-0">
+        <img class="w-100" src="{{cmsRoot}}{{img urun lang}}">
       </div>
     </div>
   </div>

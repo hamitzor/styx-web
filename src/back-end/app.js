@@ -11,7 +11,13 @@ import { isProduction } from './util/env-checker'
 import createProductRouter from './routes/product-router'
 
 const main = async () => {
+
   await loadContent()
+  if (!isProduction) {
+    setInterval(async () => {
+      await loadContent()
+    }, 4000)
+  }
 
   const app = express()
   if (isProduction) {

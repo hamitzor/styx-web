@@ -1,32 +1,97 @@
 div.error-info-container{
-  margin-top:4rem;
+  margin: 0.5rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   div.error-info{
     display: inline-block;
-    padding-top:4rem;
+    padding-top:1rem;
     color:white;
     background-color: rgba(0,0,0,0.6);
-    max-width: 400px;
-    font-size: 2rem;
+    max-width: 100%;
+    font-size: 1.5rem;
     div.error-code{
-      font-size: 10rem;
-      padding: 0 4rem;
+      font-size: 5rem;
+      padding: 0 0.5rem;
     }
     
     div.error-message{
-      padding: 0 4rem 
+      padding: 0 1rem 
     }
 
     div.return-home{
-      margin-top:5rem;
+      margin-top:1rem;
       a{
-        font-size: 2rem;
+        font-size: 1.5rem;
         border-radius: 0;
         width: 100%;
       }
     }
+  }
+}
+
+.header{
+  background-size: 270%;
+  .black-cover{
+    padding-bottom:40px;
+  }
+}
+
+@media (min-width: 360px) {
+  .header{
+    background-size: 240%;
+  }
+}
+
+
+@media (min-width: 576px) {
+  .header{
+    background-size: 305%;
+  }
+
+  div.error-info-container{
+    margin: 5rem 0;
+    div.error-info{
+      padding-top:4rem;
+      max-width: 400px;
+      font-size: 2rem;
+      div.error-code{
+        font-size: 10rem;
+        padding: 0 4rem;
+      }
+      div.error-message{
+        padding: 0 4rem 
+      }
+      div.return-home{
+        a{
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .header{
+    background-size: 260%;
+  }
+}
+@media (min-width: 992px) {
+  .header{
+    background-size: 210%;
+    .black-cover{
+      padding-bottom:50px;
+    }
+  }
+}
+@media (min-width: 1200px) {
+  .header{
+    background-size: 192%;
+  }
+}
+@media (min-width: 1600px) {
+  .header{
+    background-size: 165%;
   }
 }

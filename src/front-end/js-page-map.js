@@ -5,7 +5,8 @@ module.exports = {
     'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js',
     'https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js',
     '/public/min.js/paroller.min.js',
-    '/public/min.js/core.min.js'
+    '/public/min.js/globals.min.js',
+    '/public/min.js/common.min.js'
   ],
   anasayfa: [
     'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js',

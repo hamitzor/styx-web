@@ -1,4 +1,5 @@
 import Strapi from 'strapi-sdk-javascript'
+import slug from 'slug'
 
 const strapi = new Strapi('http://localhost:1337')
 
@@ -26,6 +27,10 @@ const prepareContent = async () => {
   const gorseller = await normalizeEntity('gorsels')
   const referanslar = await normalizeEntity('referans')
   const hizmetler = await normalizeEntity('hizmets')
+
+  Object.keys(urunler).forEach(key => {
+    urunler[key].slug = slug(urunler[key].isim, { lower: true })
+  })
 
   content.sayfalar = sayfalar
   content.yazilar = yazilar

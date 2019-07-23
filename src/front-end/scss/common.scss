@@ -199,6 +199,7 @@ div.slider{
     flex-direction: column;
     padding: 0.5rem 0rem;
     border-radius: 2px;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
     .menu-item{
       transition: background-color $color-transition-duration ease-in,color $color-transition-duration ease-in;
       color: map-get($grays, "900");
@@ -213,13 +214,14 @@ div.slider{
 }
 
 .header {
-  background-size: 320%;
-  background-position: 0 -50px;
+  background-size: 110%;
+  background-position: 0 0px;
   background-attachment: fixed;
   background-repeat: no-repeat;
   .black-cover {
-    background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
     width: 100%;
+    padding-bottom: 120px;  
   }
 }
 
@@ -406,41 +408,56 @@ button.btn{
     bottom: 0;
     width: 0;
     height: 0;
-    border-bottom: 40px solid $body-bg;
+    border-bottom: 30px solid $body-bg;
   }
   &-left {
+    left:0;
     border-left: 0px solid transparent;
-    border-right: 1920px solid transparent;
+    border-right: 0 solid transparent;
   }
   &-right {
     right: 0;
     border-right: 0px solid transparent;
-    border-left: 0 solid transparent;
+    border-left: 1620px solid transparent;
   }
 }
 
+@media (min-width: 360px){
+  .header {
+    background-size: 100%;
+    background-position: 0 0px;
+  }
+}
 
 @media (min-width: 576px) {
   .header {
-    background-size: 210%;
+    background-position: 0 -80px;
+  }
+  .half-triangle {
+    &-left {
+      border-right: 550px solid transparent;
+    }
   }
 }
 @media (min-width: 768px) {
-  .header {
-    background-size: 250%;
-  }
   .round-card{
     width: 120px;
     height: 120px;
   }
-}
-@media (min-width: 992px) {
-
-.round-card{
-  &:hover{
-    background-color: map-get($grays, "200");
+  .header {
+    background-position: 0 -170px;
   }
 }
+
+@media (min-width: 992px) {
+  .header {
+    background-position: 0 -200px;
+  }
+  .round-card{
+    &:hover{
+      background-color: map-get($grays, "200");
+    }
+  }
   div.slider{
     &-prev,&-next{
       overflow: initial;
@@ -470,9 +487,7 @@ button.btn{
       right:-4rem;
     }
   }
-  .header {
-    background-size: 230%;
-  }
+
   .navbar-custom{
     .navbar-links-container{
       display: flex;
@@ -494,11 +509,11 @@ button.btn{
 }
 @media (min-width: 1200px) {
   .header {
-    background-size: 140%;
+    background-position: 0 -330px;
   }
 }
 @media (min-width: 1600px) {
   .header {
-    background-size: 100%;
+    background-position: 0 -500px;
   }
 }

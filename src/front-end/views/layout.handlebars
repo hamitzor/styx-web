@@ -26,31 +26,34 @@
         <i class="lni-close size-lg"></i>
       </button>
       <div class="d-flex flex-column align-items-center justify-content-center">
-        <a class="white-link" href="#"><i class="lni-home mr-3"></i>{{trs yazilar.layout_nav_anasayfa lang}}</a>
+        <a class="white-link" href="/{{lang}}"><i class="lni-home mr-3"></i>{{trs yazilar.layout_nav_anasayfa lang}}</a>
         <div class="list-strip-20 mx-auto mb-2"></div>
-        <a class="white-link" href="#"><i class="lni-apartment mr-3"></i>{{trs yazilar.layout_nav_kurumsal lang}}</a>
+        <a class="white-link" href="/{{lang}}/kurumsal"><i
+            class="lni-apartment mr-3"></i>{{trs yazilar.layout_nav_kurumsal lang}}</a>
         <div class="list-strip-20 mx-auto mb-2"></div>
-        <button id="open-mobile-urunler" type="button" class="btn btn-link py-1">
+        <button id="open-mobile-products-menu" type="button" class="btn btn-link py-1">
           <i class="lni-laptop-phone mr-3"></i>{{trs yazilar.layout_nav_urunler lang}}</button>
         <div class="list-strip-20 mx-auto mb-2"></div>
-        <a class="white-link" href="#"><i class="lni-users mr-3"></i>{{trs yazilar.layout_nav_referanslar lang}}</a>
+        <a class="white-link" href="/{{lang}}/referanslar"><i
+            class="lni-users mr-3"></i>{{trs yazilar.layout_nav_referanslar lang}}</a>
         <div class="list-strip-20 mx-auto mb-2"></div>
         <a class="white-link" href="/{{lang}}/iletisim"><i
             class="lni-phone mr-3"></i>{{trs yazilar.layout_nav_iletisim lang}}</a>
         <div class="list-strip-20 mx-auto mb-2"></div>
-        <a class="btn btn-primary px-3 mt-3 ml-0 ml-lg-3" href="#"
+        <a class="btn btn-primary px-3 mt-3 ml-0 ml-lg-3" href="/{{lang}}/teklif-al"
           role="button">{{trs yazilar.layout_nav_teklif lang}}</a>
       </div>
     </div>
   </div>
-  <div id="mobile-urunler" class="mobile-popup mobile-urunler" style="top: 700px; opacity: 0; display: none;">
+  <div id="mobile-products-menu" class="mobile-popup mobile-products-menu"
+    style="top: 700px; opacity: 0; display: none;">
     <div class="position-relative d-flex w-100 justify-content-center">
-      <button id="close-mobile-urunler" type="button" class="btn btn-link close-menu">
+      <button id="close-mobile-products-menu" type="button" class="btn btn-link close-menu">
         <i class="lni-close size-lg"></i>
       </button>
       <div class="d-flex flex-column align-items-center justify-content-center">
         {{#each urunler}}
-        <a class="white-link" href="#">{{trs this @root.lang "isim"}}</a>
+        <a class="white-link" href="/{{@root.lang}}/urunler/{{this.slug}}">{{trs this @root.lang "isim"}}</a>
         <div class="list-strip-20 mx-auto mb-2"></div>
         {{/each}}
       </div>
@@ -63,7 +66,7 @@
         <div class="container pt-3  position-relative">
           <nav class="navbar navbar-expand-lg navbar-dark navbar-custom p-0 p-md-2">
 
-            <a class="navbar-brand white-link" href="#">{{trs yazilar.styx_logo lang}}</a>
+            <a class="navbar-brand white-link" href="/{{lang}}">{{trs yazilar.styx_logo lang}}</a>
 
             <!--Add here -->
             <button id="open-mobile-navbar" class="navbar-toggler" type="button">
@@ -73,29 +76,29 @@
             <div class="navbar-links-container">
               <ul class="navbar-links">
                 <li class="nav-item px-2 text-center">
-                  <a class="white-link" href="#">{{trs yazilar.layout_nav_anasayfa lang}}</a>
+                  <a class="white-link" href="/{{lang}}">{{trs yazilar.layout_nav_anasayfa lang}}</a>
                 </li>
                 <li class="nav-item px-2 text-center">
-                  <a class="white-link" href="#">{{trs yazilar.layout_nav_kurumsal lang}}</a>
+                  <a class="white-link" href="/{{lang}}/kurumsal">{{trs yazilar.layout_nav_kurumsal lang}}</a>
                 </li>
                 <li class="nav-item menu-container pr-1">
-                  <button role="link" type="button" class="btn btn-link dropdown-toggle menu-toggle py-0" href="#">
+                  <button role="link" type="button" class="btn btn-link dropdown-toggle menu-toggle py-0">
                     {{trs yazilar.layout_nav_urunler lang}}
                   </button>
                   <div class="menu" style="display: none">
                     {{#each urunler}}
-                    <a class="menu-item" href="#">{{trs this @root.lang "isim"}}</a>
+                    <a class="menu-item" href="/{{@root.lang}}/urunler/{{this.slug}}">{{trs this @root.lang "isim"}}</a>
                     {{/each}}
                   </div>
                 </li>
                 <li class="nav-item px-2">
-                  <a class="white-link" href="#">{{trs yazilar.layout_nav_referanslar lang}}</a>
+                  <a class="white-link" href="/{{lang}}/referanslar">{{trs yazilar.layout_nav_referanslar lang}}</a>
                 </li>
                 <li class="nav-item px-2">
                   <a class="white-link" href="/{{lang}}/iletisim">{{trs yazilar.layout_nav_iletisim lang}}</a>
                 </li>
                 <li class="nav-item">
-                  <a class="btn btn-primary px-3 ml-0 ml-lg-3" href="#"
+                  <a class="btn btn-primary px-3 ml-0 ml-lg-3" href="/{{lang}}/teklif-al"
                     role="button">{{trs yazilar.layout_nav_teklif lang}}</a>
                 </li>
               </ul>
@@ -118,19 +121,22 @@
                   </p>
                 </div>
                 <div class="col-md-4 py-2 py-md-4 px-1 px-md-3">
-                  <h5 class="footer-section-title"><a class="white-link"
-                      href="#">{{trs yazilar.layout_nav_urunler lang}}</a></h5>
+                  <h5 class="footer-section-title">{{trs yazilar.layout_nav_urunler lang}}</h5>
                   <div class="section-strip-50 mx-auto mx-md-0"></div>
                   {{#each urunler}}
-                  <div class="mb-1"><a class="white-link" href="#">{{trs this @root.lang "isim"}}</a></div>
+                  <div class="mb-1"><a class="white-link"
+                      href="/{{@root.lang}}/urunler/{{this.slug}}">{{trs this @root.lang "isim"}}</a></div>
                   {{/each}}
                 </div>
                 <div class="col-md-4 py-2 py-md-4 px-1 px-md-3">
                   <h5 class="footer-section-title">{{trs yazilar.layout_nav_kisayollar lang}}</h5>
                   <div class="section-strip-50 mx-auto mx-md-0"></div>
-                  <div class="mb-1"><a class="white-link" href="#">{{trs yazilar.layout_nav_anasayfa lang}}</a></div>
-                  <div class="mb-1"><a class="white-link" href="#">{{trs yazilar.layout_nav_kurumsal lang}}</a></div>
-                  <div class="mb-1"><a class="white-link" href="#">{{trs yazilar.layout_nav_referanslar lang}}</a></div>
+                  <div class="mb-1"><a class="white-link" href="/{{lang}}">{{trs yazilar.layout_nav_anasayfa lang}}</a>
+                  </div>
+                  <div class="mb-1"><a class="white-link"
+                      href="/{{lang}}/kurumsal">{{trs yazilar.layout_nav_kurumsal lang}}</a></div>
+                  <div class="mb-1"><a class="white-link"
+                      href="/{{lang}}/referanslar">{{trs yazilar.layout_nav_referanslar lang}}</a></div>
                   <div class="mb-1"><a class="white-link"
                       href="/{{lang}}/iletisim">{{trs yazilar.layout_nav_iletisim lang}}</a></div>
                 </div>

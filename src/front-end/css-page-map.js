@@ -1,6 +1,6 @@
 module.exports = {
   common: [
-    '/public/min.css/core.min.css'
+    '/public/min.css/common.min.css'
   ],
   anasayfa: [
     '/public/min.css/anasayfa.min.css',

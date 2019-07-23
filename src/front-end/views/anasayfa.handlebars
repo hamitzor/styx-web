@@ -1,7 +1,7 @@
 <div class="jumbotron mt-2 bg-transparent p-1 p-sm-2 p-md-3 p-lg-4">
   <div class="row">
     <div class="anasayfa-showcase mt-md-5 col-12 col-lg-7 text-center text-lg-left">
-      <div class="anasayfa-slider">
+      <div id="main-slider">
         {{#each sliderlar.anasayfa_slider.metinler}}
         <div class="slider-item {{#notEq @index 0}}slider-hidden-item{{/notEq}}">
           <h1 class="display-4 text-white font-weight-bold">{{trs this @root.lang "baslik"}}</h1>
@@ -45,7 +45,7 @@
     <div class="card-body pb-3">
       <h4 class="card-title">{{trs formlar.anasayfa_teklif_form lang "baslik"}}</h4>
       <p class="card-text ">{{trs formlar.anasayfa_teklif_form lang "aciklama"}}</p>
-      <form id="teklif-form" action="/{{lang}}/ajax/teklif-al" method="POST" class="offer-form">
+      <form data-form-name="offer-form" action="/{{lang}}/ajax/teklif-al" method="POST" class="offer-form">
         <div class="col-12 p-0">
           <div class="input-group mb-2">
             <input data-validation-required-msg="{{trs yazilar.hata_bos_ad_soyad lang}}" name="ad_soyad" type="text"
@@ -103,7 +103,7 @@
         </div>
       </form>
     </div>
-    <button data-submit-form="#teklif-form" type="submit"
+    <button data-submit-btn="offer-form" type="submit"
       class="btn btn-primary w-100 py-3 border-0 btn-lg border-radius-0 loading">
       {{trs alanlar.gonder lang "etiket"}}
     </button>
@@ -111,7 +111,7 @@
 </div>
 </div>
 
-<div class="body-container mb-3 mb-md-5">
+<div class="mb-3 mb-md-5">
 
   <div class="container">
 
@@ -121,7 +121,7 @@
         <h2>{{trs urunler.obys lang "baslik"}}</h2>
         <p class="lead">{{trs urunler.obys lang "alt_baslik"}}</p>
 
-        <p>{{{trs urunler.obys lang "aciklama"}}}</p>
+        <p>{{{markdown (trs urunler.obys lang "aciklama")}}}</p>
       </div>
 
       <div class="col-sm-12 col-lg-5">
@@ -153,7 +153,7 @@
 
       {{#each urunler}}
       <div class="col-md-4 col-lg-2">
-        <a href="#" class="round-card mx-auto mb-3">
+        <a href="{{lang}}/urunler/{{this.slug}}" class="round-card mx-auto mb-3">
           {{{this.ikon}}}
         </a>
         <h5>{{trs this @root.lang "isim"}}</h5>
