@@ -7,7 +7,7 @@ const notFound = async function (req, res) {
   const html = renderToHtml({
     view: 'not-found',
     viewContent: {
-      cssAndJsFiles: ['common', 'notFound'],
+      cssAndJsFiles: ['common', 'not-found'],
       lang,
       title: translate(content.sayfalar['404'], lang, 'baslik')
     },

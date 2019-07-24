@@ -12,7 +12,7 @@
         {{/each}}
       </div>
       <p class="lead">
-        <a class="btn btn-success btn-lg px-4" href="#"
+        <a class="btn btn-success btn-lg px-4" href="/{{lang}}/teklif-al"
           role="button">{{trs yazilar.anasayfa_vitrin_teklif_alin lang}}</a>
       </p>
     </div>
@@ -58,8 +58,8 @@
             </div>
           </div>
           <div class="input-group mb-2">
-            <input data-validation-email-msg="{{trs yazilar.hata_gecersiz_email lang}}"
-              data-validation-required-msg="{{trs yazilar.hata_bos_email lang}}" name="eposta" type="text"
+            <input data-validation-eposta-msg="{{trs yazilar.hata_gecersiz_eposta lang}}"
+              data-validation-required-msg="{{trs yazilar.hata_bos_eposta lang}}" name="eposta" type="text"
               class="form-control bg-transparent text-white " autocomplete="nofill"
               placeholder="{{trs alanlar.eposta lang "placeholder"}} *" />
             <div class="input-group-append">
@@ -111,11 +111,9 @@
 </div>
 </div>
 
-<div class="mb-3 mb-md-5">
-
+<div class="bg-lg-silver py-3 py-lg-4">
   <div class="container">
-
-    <div class="row my-3 my-lg-5">
+    <div class="row">
       <div class="col-sm-12 col-lg-7 text-sm-center text-lg-left my-2">
 
         <h2>{{trs urunler.obys lang "baslik"}}</h2>
@@ -128,21 +126,27 @@
         <img class="w-100" src="{{cmsRoot}}{{img urunler.obys lang}}">
       </div>
     </div>
+  </div>
+</div>
 
-    <div class="row my-3 my-lg-5">
-      <div class="col-sm-12 col-lg-5">
-        <img class="w-100" src="{{cmsRoot}}{{img urunler.aosis lang}}">
-      </div>
-      <div class="col-sm-12 col-lg-7 text-sm-center text-lg-left my-3">
-
-        <h2>{{trs urunler.aosis lang "baslik"}}</h2>
-        <p class="lead">{{trs urunler.aosis lang "alt_baslik"}}</p>
-
-        <p>{{{trs urunler.aosis lang "aciklama"}}}</p>
-      </div>
+<div class="container  py-3 py-lg-4">
+  <div class="row">
+    <div class="col-sm-12 col-lg-5">
+      <img class="w-100" src="{{cmsRoot}}{{img urunler.aosis lang}}">
     </div>
+    <div class="col-sm-12 col-lg-7 text-sm-center text-lg-left my-3">
 
-    <div class="row my-3 my-lg-5 text-center  text-dark">
+      <h2>{{trs urunler.aosis lang "baslik"}}</h2>
+      <p class="lead">{{trs urunler.aosis lang "alt_baslik"}}</p>
+
+      <p>{{{trs urunler.aosis lang "aciklama"}}}</p>
+    </div>
+  </div>
+</div>
+
+<div class="bg-lg-silver py-3 py-lg-4">
+  <div class="container">
+    <div class="row text-center  text-dark">
       <div class="col-12  mb-4">
         <h3 class="text-center">{{trs yazilar.anasayfa_urunler_baslik lang}}</h3>
         <div class="section-strip-30 mx-auto"></div>
@@ -164,26 +168,28 @@
       {{/each}}
 
     </div>
+  </div>
+</div>
 
-    <div class="row my-5 my-lg-4 text-center  text-dark">
-      <div class="col-12 mb-4">
-        <h3 class="text-center">{{trs yazilar.anasayfa_referanslar_baslik lang}}</h3>
-        <div class="section-strip-30 mx-auto"></div>
-        <p class="text-muted">{{trs yazilar.anasayfa_referanslar_alt_baslik lang}}</p>
-      </div>
-
-      {{#each referanslar}}
-      <div class="col-6 col-md-4 col-lg-3 mb-3 mb-lg-4">
-        <a href="#" class="reactive-card referans-card">
-          <div class="reactive-card-background" style="background-image: url('{{cmsRoot}}{{this.gorseller.0.url}}')">
-          </div>
-          <p
-            class="reactive-card-content text-white lead d-flex align-items-center justify-content-center font-weight-medium">
-            {{trs this @root.lang "isim"}}
-          </p>
-        </a>
-      </div>
-      {{/each}}
+<div class="container py-3 py-lg-4 pb-lg-5">
+  <div class="row text-center  text-dark">
+    <div class="col-12 mb-4">
+      <h3 class="text-center">{{trs yazilar.anasayfa_referanslar_baslik lang}}</h3>
+      <div class="section-strip-30 mx-auto"></div>
+      <p class="text-muted">{{trs yazilar.anasayfa_referanslar_alt_baslik lang}}</p>
     </div>
+
+    {{#each referanslar}}
+    <div class="col-6 col-md-4 col-lg-3 mb-3 mb-lg-4">
+      <a href="#" class="reactive-card referans-card">
+        <div class="reactive-card-background" style="background-image: url('{{cmsRoot}}{{this.gorseller.0.url}}')">
+        </div>
+        <p
+          class="reactive-card-content text-white lead d-flex align-items-center justify-content-center font-weight-medium">
+          {{trs this @root.lang "isim"}}
+        </p>
+      </a>
+    </div>
+    {{/each}}
   </div>
 </div>

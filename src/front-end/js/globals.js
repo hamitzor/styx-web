@@ -38,7 +38,7 @@
         const name = $el.attr('name')
         messages[name] = {
           required: $el.data('validation-required-msg'),
-          email: $el.data('validation-email-msg'),
+          email: $el.data('validation-eposta-msg'),
           pattern: $el.data('validation-pattern-msg')
         }
       })
@@ -93,12 +93,12 @@
   }
 
   const documentReadyHandler = () => {
-    setGlobalConstants()
     setGlobalElements()
-    setGlobalFunctions()
   }
 
   $(document).ready(documentReadyHandler)
+  setGlobalFunctions()
+  setGlobalConstants()
 
 })()
 

@@ -1,10 +1,12 @@
 import express from 'express'
-import { anasayfa, iletisim } from '../controller/home-controller'
+import createHomeController from '../controller/home-controller'
 
 const homeRouter = express.Router({ mergeParams: true })
 
-homeRouter.get('/', anasayfa)
+const pages = ['', 'iletisim', 'kurumsal', 'referanslar', 'teklif-al']
 
-homeRouter.get('/iletisim/', iletisim)
+pages.forEach(name => {
+  homeRouter.get(`/${name}`, createHomeController(name ? name : undefined))
+})
 
 export default homeRouter

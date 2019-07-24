@@ -79,7 +79,7 @@ const renderToHtml = ({ view, viewContent = {}, layout = 'layout' }) => {
 
   const cssAndJsFiles = viewContent.cssAndJsFiles && viewContent.cssAndJsFiles.reduce((acc, key) => {
     return {
-      scripts: [...acc.scripts, ...scripts[key]],
+      scripts: [...acc.scripts, ...(scripts[key].map(script => /^\{\{.*\}\}$/.test(script) ? script.replace('{{', '').replace('}}', '') : ` src=${script} `))],
       stylesheets: [...acc.stylesheets, ...stylesheets[key]]
     }
   }, { scripts: [], stylesheets: [] })

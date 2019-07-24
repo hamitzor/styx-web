@@ -37,6 +37,22 @@
   }
 }
 
+.form-control {
+  &::placeholder {
+    color: map-get($grays, "300");
+    opacity: 1; 
+  }
+  border-color: transparent;
+  border-width: 1px;
+  border-radius: 0;
+  border-bottom-color: map-get($grays, "600");
+  &:focus {
+    box-shadow: none;
+    border-color: transparent;
+    border-bottom-color: map-get($grays, "200");
+  }
+}
+
 .offer-form-card {
   background-color: transparent;
   div.feedback-message{

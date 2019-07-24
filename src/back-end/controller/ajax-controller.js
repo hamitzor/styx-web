@@ -17,8 +17,8 @@ const getOffer = async (req, res) => {
 
   try {
     if (validator.isEmpty(ad_soyad)) { throw ['ad_soyad', 'hata_bos_ad_soyad'] }
-    if (validator.isEmpty(eposta)) { throw ['eposta', 'hata_bos_email'] }
-    if (!validator.isEmail(eposta)) { throw ['eposta', 'hata_gecersiz_email'] }
+    if (validator.isEmpty(eposta)) { throw ['eposta', 'hata_bos_eposta'] }
+    if (!validator.isEmail(eposta)) { throw ['eposta', 'hata_gecersiz_eposta'] }
     if (validator.isEmpty(hizmet)) { throw ['hizmet', 'hata_bos_hizmet'] }
     if (!validator.isIn(hizmet, ['Web Tasarım & Yazılım', 'Web Yazılım', 'SEO'])) { throw ['hizmet', 'hata_gecersiz_hizmet'] }
     if (validator.isEmpty(mesaj)) { throw ['mesaj', 'hata_bos_mesaj'] }

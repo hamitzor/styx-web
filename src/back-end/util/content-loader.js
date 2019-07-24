@@ -27,6 +27,7 @@ const prepareContent = async () => {
   const gorseller = await normalizeEntity('gorsels')
   const referanslar = await normalizeEntity('referans')
   const hizmetler = await normalizeEntity('hizmets')
+  const metinler = await normalizeEntity('metins')
 
   Object.keys(urunler).forEach(key => {
     urunler[key].slug = slug(urunler[key].isim, { lower: true })
@@ -42,6 +43,7 @@ const prepareContent = async () => {
   content.gorseller = gorseller
   content.referanslar = referanslar
   content.hizmetler = hizmetler
+  content.metinler = metinler
 }
 
 const loadContent = async () => {
