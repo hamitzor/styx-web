@@ -9,13 +9,16 @@ import { notFound } from './controller/error-controller'
 import languageChecker from './middlewares/language-checker'
 import { isProduction } from './util/env-checker'
 import createProductRouter from './routes/product-router'
+import noBots from 'express-nobots'
 
 const main = async () => {
 
   await loadContent()
 
   const app = express()
-  console.log(isProduction)
+
+  app.use(noBots())
+
   if (isProduction) {
     app.use(compression())
   }
