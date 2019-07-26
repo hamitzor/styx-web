@@ -31,8 +31,8 @@ const main = async () => {
   app.use('/:lang/urunler', createProductRouter())
   app.use('/:lang/*', notFound)
 
-  const { hostname, port } = config
-  app.listen(port, hostname, () => console.log(`Online at http://${hostname}:${port}`))
+  const { port } = config
+  app.listen(port, () => console.log(`Online at http://localhost:${port}`))
 }
 
 export default main
