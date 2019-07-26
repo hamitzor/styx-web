@@ -1,5 +1,5 @@
 (function () {
-  contactInitMap = () => {
+  window.contactInitMap = () => {
     $(document).ready(() => {
       const $map = $('div#gm-location')
       const location = { lat: 39.975591, lng: 32.735205 }
