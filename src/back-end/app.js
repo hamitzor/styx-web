@@ -15,6 +15,7 @@ const main = async () => {
   await loadContent()
 
   const app = express()
+  console.log(isProduction)
   if (isProduction) {
     app.use(compression())
   }

@@ -1,10 +1,10 @@
 (function () {
 
   const setGlobalConstants = () => {
-    POPUP_ANIMATE_DURATION = 300
-    MENU_ANIMATE_DURATION = 200
+    window.POPUP_ANIMATE_DURATION = 300
+    window.MENU_ANIMATE_DURATION = 200
 
-    COMMON_VALIDATION_OPTIONS = {
+    window.COMMON_VALIDATION_OPTIONS = {
       errorElement: 'div',
       errorClass: "validation-error",
       focusCleanup: true,
@@ -12,25 +12,25 @@
       onkeyup: false
     }
 
-    IS_TOUCH = (('ontouchstart' in window)
+    window.IS_TOUCH = (('ontouchstart' in window)
       || (navigator.MaxTouchPoints > 0)
       || (navigator.msMaxTouchPoints > 0))
 
-    IS_MOBILE = window.innerWidth < 992
+    window.IS_MOBILE = window.innerWidth < 992
   }
 
   const setGlobalElements = () => {
-    $mobileNavbar = $('div#mobile-navbar')
-    $openMobileNavbarBtn = $('button#open-mobile-navbar')
-    $closeMobileNavbarBtn = $('button#close-mobile-navbar')
-    $mobileProductsMenu = $('div#mobile-products-menu')
-    $openMobileProductsMenuBtn = $('button#open-mobile-products-menu')
-    $closeMobileProdutsMenuBtn = $('button#close-mobile-products-menu')
+    window.$mobileNavbar = $('div#mobile-navbar')
+    window.$openMobileNavbarBtn = $('button#open-mobile-navbar')
+    window.$closeMobileNavbarBtn = $('button#close-mobile-navbar')
+    window.$mobileProductsMenu = $('div#mobile-products-menu')
+    window.$openMobileProductsMenuBtn = $('button#open-mobile-products-menu')
+    window.$closeMobileProdutsMenuBtn = $('button#close-mobile-products-menu')
   }
 
   const setGlobalFunctions = () => {
 
-    createForm = ({ name, onSubmit, validateOptions }) => {
+    window.createForm = ({ name, onSubmit, validateOptions }) => {
       const $form = $(`form[data-form-name="${name}"]`)
       const messages = {}
       $form.find('[name]').each((_, el) => {
@@ -54,7 +54,7 @@
       })
     }
 
-    dismissOnDocumentClick = (toggler, item) => {
+    window.dismissOnDocumentClick = (toggler, item) => {
       $(document).on('click', (e) => {
         const $el = $(e.target)
         if ((!$el.is(item) && $el.children(item).length < 1 && $el.parents(item).length < 1) &&
@@ -64,7 +64,7 @@
       })
     }
 
-    manageNavbar = mode => () => {
+    window.manageNavbar = mode => () => {
       const open = mode === 'open'
       $openMobileNavbarBtn.animate({
         opacity: open ? 0 : 1,
@@ -78,7 +78,7 @@
       })
     }
 
-    manageProductsMenu = mode => () => {
+    window.manageProductsMenu = mode => () => {
       const open = mode === 'open'
       open && manageNavbar('close')()
       open && $mobileProductsMenu.css('display', 'flex')
