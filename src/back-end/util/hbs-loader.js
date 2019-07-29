@@ -59,14 +59,23 @@ hbs.registerHelper('trs', (obj, lang, key) => {
 
 hbs.registerHelper('markdown', function (text) {
   const imgRegex = /\!\[[^\[\]]*\]\(([^\(\)]*)\)/g
-  let matches = null
+  let imgMatch = null
   do {
-    matches = imgRegex.exec(text)
-    if (matches) {
-      text = text.replace(matches[1], `${cmsRoot}${matches[1]}`)
+    imgMatch = imgRegex.exec(text)
+    if (imgMatch) {
+      text = text.replace(imgMatch[1], `${cmsRoot}${imgMatch[1]}`)
     }
 
-  } while (matches)
+  } while (imgMatch)
+
+  const linkRegex = /[^!]\[[^\[\]]*\]\(([^\(\)]*)\)/g
+  let linkMatch = null
+  do {
+    linkMatch = linkRegex.exec(text)
+    if (linkMatch) {
+      text = text.replace(linkMatch[1], `${cmsRoot}${linkMatch[1]}`)
+    }
+  } while (linkMatch)
 
   const converter = new showdown.Converter()
   const html = converter.makeHtml(text)
