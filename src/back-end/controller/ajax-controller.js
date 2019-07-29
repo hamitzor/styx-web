@@ -55,7 +55,7 @@ const getOffer = async (req, res) => {
       <p>Arz Edilen Hizmet : ${hizmet}</p>
       <p>Mesaj : ${mesaj}</p></p>`
     })
-    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info))
+    //console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info))
 
     await strapi.createEntry('teklifs', { ad_soyad, eposta, tel, mesaj, hizmet })
     res.json({

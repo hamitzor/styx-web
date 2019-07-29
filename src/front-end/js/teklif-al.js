@@ -64,7 +64,6 @@
               })
             }
             else if (json.status === "BAD_REQUEST") {
-              console.log(json.payload)
               validator.showErrors(json.payload)
             }
             else {
