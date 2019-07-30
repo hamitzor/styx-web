@@ -20,7 +20,7 @@ const getOffer = async (req, res) => {
     if (validator.isEmpty(eposta)) { throw ['eposta', 'hata_bos_eposta'] }
     if (!validator.isEmail(eposta)) { throw ['eposta', 'hata_gecersiz_eposta'] }
     if (validator.isEmpty(hizmet)) { throw ['hizmet', 'hata_bos_hizmet'] }
-    if (!validator.isIn(hizmet, ['Web Tasarım & Yazılım', 'Web Yazılım', 'SEO'])) { throw ['hizmet', 'hata_gecersiz_hizmet'] }
+    if (!validator.isIn(hizmet, Object.keys(content.hizmetler).map(key => content.hizmetler[key].isim))) { throw ['hizmet', 'hata_gecersiz_hizmet'] }
     if (validator.isEmpty(mesaj)) { throw ['mesaj', 'hata_bos_mesaj'] }
     if (!validator.isEmpty(tel) && !validator.matches(tel, /\d\d\d\d\ \d\d\d\ \d\d\ \d\d/)) { throw ['tel', 'hata_gecersiz_tel'] }
   }
