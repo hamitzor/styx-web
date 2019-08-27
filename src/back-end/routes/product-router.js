@@ -7,7 +7,7 @@ const createProductRouter = () => {
   const productRouter = express.Router({ mergeParams: true })
   Object.keys(content.urunler).forEach(key => {
     const urun = content.urunler[key]
-    productRouter.get(`/${slug(urun.isim, { lower: true })}`, createProductController(urun))
+    productRouter.get(`/${slug(urun.isim, { lower: true })}`, createProductController(key))
   })
   return productRouter
 }

@@ -1,15 +1,16 @@
 import { cachePage } from '../util/cache-store'
 import { renderToHtml } from '../util/hbs-loader'
+import { content } from '../util/content-loader'
 
-const createProductController = data => async (req, res) => {
+const createProductController = key => async (req, res) => {
   const { lang } = req.params
   const html = renderToHtml({
     view: 'urun',
     viewContent: {
-      urun: data,
+      urun: content.urunler[key],
       cssAndJsFiles: ['common'],
       lang,
-      title: data.isim
+      title: content.urunler[key].isim
     }
   })
   cachePage(req.originalUrl, html)
