@@ -1,22 +1,22 @@
 <div class="jumbotron mt-2 bg-transparent p-1 p-sm-2 p-md-3 p-lg-4">
-  <div class="row">
-    <div class="anasayfa-showcase mt-md-5 col-12 col-lg-7 text-center text-lg-left">
-      <div id="main-slider">
-        {{#each sliderlar.anasayfa_slider.metinler}}
-        <div class="slider-item {{#notEq @index 0}}slider-hidden-item{{/notEq}}">
-          <h1 class="display-4 text-white font-weight-bold">{{trs this @root.lang "baslik"}}</h1>
-          <div class="lead text-white">
-            {{{markdown (trs this @root.lang "icerik")}}}
-          </div>
-        </div>
-        {{/each}}
+   <div class="row">
+      <div class="anasayfa-showcase mt-md-5 col-12 col-lg-7 text-center text-lg-left">
+         <div id="main-slider">
+            {{#each sliderlar.anasayfa_slider.metinler}}
+            <div class="slider-item {{#notEq @index 0}}slider-hidden-item{{/notEq}}">
+               <h1 class="display-4 text-white font-weight-bold">{{trs this @root.lang "baslik"}}</h1>
+               <div class="lead text-white">
+                  {{{markdown (trs this @root.lang "icerik")}}}
+               </div>
+            </div>
+            {{/each}}
+         </div>
+         <p class="lead">
+            <a class="btn btn-success btn-lg px-4" href="/{{lang}}/teklif-al"
+               role="button">{{trs yazilar.anasayfa_vitrin_teklif_alin lang}}</a>
+         </p>
       </div>
-      <p class="lead">
-        <a class="btn btn-success btn-lg px-4" href="/{{lang}}/teklif-al"
-          role="button">{{trs yazilar.anasayfa_vitrin_teklif_alin lang}}</a>
-      </p>
-    </div>
-  </div>
+   </div>
 </div>
 </div>
 <div class="half-triangle-right">
@@ -27,173 +27,193 @@
 </div>
 </div>
 <div class="offer-form-card-container container d-flex justify-content-end">
-  <div class="card offer-form-card mb-4 text-white border-0 border-radius-3 overflow-hidden">
-    <div class="feedback-message sent-successfully" style="display:none">
-      <button type="button" class="btn btn-link close-btn">
-        <i class="lni-close size-lg"></i>
+   <div class="card offer-form-card mb-4 text-white border-0 border-radius-3 overflow-hidden">
+      <div class="feedback-message sent-successfully" style="display:none">
+         <button type="button" class="btn btn-link close-btn">
+            <i class="lni-close size-lg"></i>
+         </button>
+         <i class="lni-check-mark-circle"></i>
+         <div class="mt-4">{{trs yazilar.geribildirim_basarili lang}}</div>
+      </div>
+      <div class="feedback-message not-sent" style="display:none">
+         <button type="button" class="btn btn-link close-btn">
+            <i class="lni-close size-lg"></i>
+         </button>
+         <i class="lni-emoji-neutral"></i>
+         <div class="mt-4">{{trs yazilar.geribildirim_basarisiz lang}}</div>
+      </div>
+      <div class="card-body pb-3">
+         <h4 class="card-title">{{trs formlar.teklif_form lang "baslik"}}</h4>
+         <p class="card-text ">{{trs formlar.teklif_form lang "aciklama"}}</p>
+         <form data-form-name="offer-form" action="/{{lang}}/ajax/teklif-al" method="POST" class="offer-form">
+            <div class="col-12 p-0">
+               <div class="input-group mb-2">
+                  <input data-validation-required-msg="{{trs yazilar.hata_bos_ad_soyad lang}}" name="ad_soyad"
+                     type="text" class="form-control bg-transparent text-white " autocomplete="nofill"
+                     placeholder="{{trs alanlar.ad_soyad lang "placeholder"}} *" />
+                  <div class="input-group-append">
+                     <span class="input-group-text  bg-transparent border-0 text-white">
+                        <i class="lni-user"></i>
+                     </span>
+                  </div>
+               </div>
+               <div class="input-group mb-2">
+                  <input data-validation-eposta-msg="{{trs yazilar.hata_gecersiz_eposta lang}}"
+                     data-validation-required-msg="{{trs yazilar.hata_bos_eposta lang}}" name="eposta" type="text"
+                     class="form-control bg-transparent text-white " autocomplete="nofill"
+                     placeholder="{{trs alanlar.eposta lang "placeholder"}} *" />
+                  <div class="input-group-append">
+                     <span class="input-group-text  bg-transparent border-0 text-white">
+                        <i class="lni-envelope"></i>
+                     </span>
+                  </div>
+               </div>
+               <div class="input-group mb-2">
+                  <input data-mask="0000 000 00 00" data-validation-pattern-msg="{{trs yazilar.hata_gecersiz_tel lang}}"
+                     name="tel" type="text" class="form-control bg-transparent text-white " autocomplete="nofill"
+                     placeholder="{{trs alanlar.tel lang "placeholder"}}" />
+                  <div class="input-group-append">
+                     <span class="input-group-text  bg-transparent border-0 text-white">
+                        <i class="lni-phone-handset"></i>
+                     </span>
+                  </div>
+               </div>
+               <div class="input-group mb-2">
+                  <div class="topic">
+                     <select name="hizmet" class="form-control bg-transparent">
+                        {{#each hizmetler}}
+                        <option value="{{this.isim}}">{{trs this @root.lang "isim"}}</option>
+                        {{/each}}
+                     </select>
+                     <div
+                        class="d-flex align-items-center justify-content-center p-2 bg-transparent border-0 text-white">
+                        <i class="lni-target"></i>
+                     </div>
+                  </div>
+               </div>
+               <div class="input-group mb-2">
+                  <textarea data-no-enter-submit="true"
+                     data-validation-required-msg="{{trs yazilar.hata_bos_mesaj lang}}" name="mesaj" rows="4"
+                     type=" text" class="form-control bg-transparent text-white " autocomplete="nofill"
+                     placeholder="{{trs alanlar.mesaj lang "placeholder"}} *"></textarea>
+                  <div class="input-group-append">
+                     <span class="input-group-text  bg-transparent border-0 text-white">
+                        <i class="lni-pencil-alt"></i>
+                     </span>
+                  </div>
+               </div>
+            </div>
+         </form>
+      </div>
+      <button data-submit-btn="offer-form" type="submit"
+         class="btn btn-primary w-100 py-3 border-0 btn-lg border-radius-0 loading">
+         {{trs alanlar.gonder lang "etiket"}}
       </button>
-      <i class="lni-check-mark-circle"></i>
-      <div class="mt-4">{{trs yazilar.geribildirim_basarili lang}}</div>
-    </div>
-    <div class="feedback-message not-sent" style="display:none">
-      <button type="button" class="btn btn-link close-btn">
-        <i class="lni-close size-lg"></i>
-      </button>
-      <i class="lni-emoji-neutral"></i>
-      <div class="mt-4">{{trs yazilar.geribildirim_basarisiz lang}}</div>
-    </div>
-    <div class="card-body pb-3">
-      <h4 class="card-title">{{trs formlar.teklif_form lang "baslik"}}</h4>
-      <p class="card-text ">{{trs formlar.teklif_form lang "aciklama"}}</p>
-      <form data-form-name="offer-form" action="/{{lang}}/ajax/teklif-al" method="POST" class="offer-form">
-        <div class="col-12 p-0">
-          <div class="input-group mb-2">
-            <input data-validation-required-msg="{{trs yazilar.hata_bos_ad_soyad lang}}" name="ad_soyad" type="text"
-              class="form-control bg-transparent text-white " autocomplete="nofill"
-              placeholder="{{trs alanlar.ad_soyad lang "placeholder"}} *" />
-            <div class="input-group-append">
-              <span class="input-group-text  bg-transparent border-0 text-white">
-                <i class="lni-user"></i>
-              </span>
-            </div>
-          </div>
-          <div class="input-group mb-2">
-            <input data-validation-eposta-msg="{{trs yazilar.hata_gecersiz_eposta lang}}"
-              data-validation-required-msg="{{trs yazilar.hata_bos_eposta lang}}" name="eposta" type="text"
-              class="form-control bg-transparent text-white " autocomplete="nofill"
-              placeholder="{{trs alanlar.eposta lang "placeholder"}} *" />
-            <div class="input-group-append">
-              <span class="input-group-text  bg-transparent border-0 text-white">
-                <i class="lni-envelope"></i>
-              </span>
-            </div>
-          </div>
-          <div class="input-group mb-2">
-            <input data-mask="0000 000 00 00" data-validation-pattern-msg="{{trs yazilar.hata_gecersiz_tel lang}}"
-              name="tel" type="text" class="form-control bg-transparent text-white " autocomplete="nofill"
-              placeholder="{{trs alanlar.tel lang "placeholder"}}" />
-            <div class="input-group-append">
-              <span class="input-group-text  bg-transparent border-0 text-white">
-                <i class="lni-phone-handset"></i>
-              </span>
-            </div>
-          </div>
-          <div class="input-group mb-2">
-            <div class="topic">
-              <select name="hizmet" class="form-control bg-transparent">
-                {{#each hizmetler}}
-                <option value="{{this.isim}}">{{trs this @root.lang "isim"}}</option>
-                {{/each}}
-              </select>
-              <div class="d-flex align-items-center justify-content-center p-2 bg-transparent border-0 text-white">
-                <i class="lni-target"></i>
-              </div>
-            </div>
-          </div>
-          <div class="input-group mb-2">
-            <textarea data-no-enter-submit="true" data-validation-required-msg="{{trs yazilar.hata_bos_mesaj lang}}"
-              name="mesaj" rows="4" type=" text" class="form-control bg-transparent text-white " autocomplete="nofill"
-              placeholder="{{trs alanlar.mesaj lang "placeholder"}} *"></textarea>
-            <div class="input-group-append">
-              <span class="input-group-text  bg-transparent border-0 text-white">
-                <i class="lni-pencil-alt"></i>
-              </span>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
-    <button data-submit-btn="offer-form" type="submit"
-      class="btn btn-primary w-100 py-3 border-0 btn-lg border-radius-0 loading">
-      {{trs alanlar.gonder lang "etiket"}}
-    </button>
-  </div>
+   </div>
 </div>
 </div>
 
 <div class="bg-lg-silver py-3 py-lg-4">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 col-lg-7 text-sm-center text-lg-left my-2">
+   <div class="container">
+      <div class="row">
+         <div class="col-sm-12 col-lg-7 text-sm-center text-lg-left my-2">
 
-        <h2>{{trs urunler.obys lang "baslik"}}</h2>
-        <p class="lead">{{trs urunler.obys lang "alt_baslik"}}</p>
+            <h2>{{trs urunler.obys lang "baslik"}}</h2>
+            <p class="lead">{{trs urunler.obys lang "alt_baslik"}}</p>
 
-        <p>{{{markdown (trs urunler.obys lang "aciklama")}}}</p>
+            <p>{{{markdown (trs urunler.obys lang "ozet")}}}</p>
+         </div>
+
+         <div class="col-sm-12 col-lg-5  d-flex align-items-center">
+            <img class="w-100" src="{{cmsRoot}}{{img urunler.obys lang}}">
+         </div>
       </div>
-
-      <div class="col-sm-12 col-lg-5  d-flex align-items-center">
-        <img class="w-100" src="{{cmsRoot}}{{img urunler.obys lang}}">
-      </div>
-    </div>
-  </div>
+   </div>
 </div>
 
 <div class="container  py-3 py-lg-4">
-  <div class="row">
-    <div class="col-sm-12 col-lg-5 d-flex align-items-center">
+   <div class="row">
+      <div class="col-sm-12 col-lg-5 d-flex align-items-center">
 
-      <video class="w-100" controls>
-        <source src="{{cmsRoot}}{{dosyalar.aosis_tanitim_filmi.kaynak.url}}" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
-    <div class="col-sm-12 col-lg-7 text-sm-center text-lg-left my-3">
+         <video class="w-100" controls>
+            <source src="{{cmsRoot}}{{dosyalar.aosis_tanitim_filmi.kaynak.url}}" type="video/mp4">
+            Your browser does not support the video tag.
+         </video>
+      </div>
+      <div class="col-sm-12 col-lg-7 text-sm-center text-lg-left my-3">
 
-      <h2>{{trs urunler.aosis lang "baslik"}}</h2>
-      <p class="lead">{{trs urunler.aosis lang "alt_baslik"}}</p>
+         <h2>{{trs urunler.aosis lang "baslik"}}</h2>
+         <p class="lead">{{trs urunler.aosis lang "alt_baslik"}}</p>
 
-      <p>{{{trs urunler.aosis lang "aciklama"}}}</p>
-    </div>
-  </div>
+         <p>{{{markdown (trs urunler.aosis lang "ozet")}}}</p>
+      </div>
+   </div>
 </div>
 
 <div class="bg-lg-silver py-3 py-lg-4">
-  <div class="container">
-    <div class="row text-center  text-dark">
-      <div class="col-12  mb-4">
-        <h3 class="text-center">{{trs yazilar.anasayfa_urunler_baslik lang}}</h3>
-        <div class="section-strip-30 mx-auto"></div>
-        <p class="text-muted">
-          {{trs yazilar.anasayfa_urunler_alt_baslik lang}}
-        </p>
-      </div>
+   <div class="container">
+      <div class="row">
+         <div class="col-sm-12 col-lg-7 text-sm-center text-lg-left my-2">
 
-      {{#each urunler}}
-      <div class="col-md-4 col-lg-2">
-        <a href="{{lang}}/urunler/{{this.slug}}" class="round-card mx-auto mb-3">
-          {{{this.ikon}}}
-        </a>
-        <h5>{{trs this @root.lang "isim"}}</h5>
-        <p>
-          {{trs this @root.lang "alt_baslik"}}
-        </p>
-      </div>
-      {{/each}}
+            <h2>{{trs urunler.e_tahsilat lang "baslik"}}</h2>
+            <p class="lead">{{trs urunler.e_tahsilat lang "alt_baslik"}}</p>
 
-    </div>
-  </div>
+            <p>{{{markdown (trs urunler.e_tahsilat lang "ozet")}}}</p>
+         </div>
+
+         <div class="col-sm-12 col-lg-5  d-flex align-items-center">
+            <img class="w-100" src="{{cmsRoot}}{{img urunler.e_tahsilat lang}}">
+         </div>
+      </div>
+   </div>
+</div>
+
+<div class="bg-lg-silver py-3 py-lg-4">
+   <div class="container">
+      <div class="row text-center  text-dark">
+         <div class="col-12  mb-4">
+            <h3 class="text-center">{{trs yazilar.anasayfa_urunler_baslik lang}}</h3>
+            <div class="section-strip-30 mx-auto"></div>
+            <p class="text-muted">
+               {{trs yazilar.anasayfa_urunler_alt_baslik lang}}
+            </p>
+         </div>
+
+         {{#each urunler}}
+         <div class="col-md-4 col-lg-2">
+            <a href="{{lang}}/urunler/{{this.slug}}" class="round-card mx-auto mb-3">
+               {{{this.ikon}}}
+            </a>
+            <h5>{{trs this @root.lang "isim"}}</h5>
+            <p>
+               {{trs this @root.lang "alt_baslik"}}
+            </p>
+         </div>
+         {{/each}}
+
+      </div>
+   </div>
 </div>
 
 <div class="container py-3 py-lg-4 pb-lg-5">
-  <div class="row text-center  text-dark">
-    <div class="col-12 mb-4">
-      <h3 class="text-center">{{trs yazilar.anasayfa_referanslar_baslik lang}}</h3>
-      <div class="section-strip-30 mx-auto"></div>
-      <p class="text-muted">{{trs yazilar.anasayfa_referanslar_alt_baslik lang}}</p>
-    </div>
+   <div class="row text-center  text-dark">
+      <div class="col-12 mb-4">
+         <h3 class="text-center">{{trs yazilar.anasayfa_referanslar_baslik lang}}</h3>
+         <div class="section-strip-30 mx-auto"></div>
+         <p class="text-muted">{{trs yazilar.anasayfa_referanslar_alt_baslik lang}}</p>
+      </div>
 
-    {{#each referanslar}}
-    <div class="col-6 col-md-4 col-lg-3 mb-3 mb-lg-4">
-      <a href="/{{@root.lang}}/referanslar" class="reactive-card referans-card">
-        <div class="reactive-card-background" style="background-image: url('{{cmsRoot}}{{this.gorseller.0.url}}')">
-        </div>
-        <p
-          class="reactive-card-content text-white lead d-flex align-items-center justify-content-center font-weight-medium">
-          {{trs this @root.lang "isim"}}
-        </p>
-      </a>
-    </div>
-    {{/each}}
-  </div>
+      {{#each referanslar}}
+      <div class="col-6 col-md-4 col-lg-3 mb-3 mb-lg-4">
+         <a href="/{{@root.lang}}/referanslar" class="reactive-card referans-card">
+            <div class="reactive-card-background" style="background-image: url('{{cmsRoot}}{{this.gorseller.0.url}}')">
+            </div>
+            <p
+               class="reactive-card-content text-white lead d-flex align-items-center justify-content-center font-weight-medium">
+               {{trs this @root.lang "isim"}}
+            </p>
+         </a>
+      </div>
+      {{/each}}
+   </div>
 </div>
