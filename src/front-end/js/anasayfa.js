@@ -24,7 +24,7 @@
 
     const mainSliderOptions = {
       autoplay: true,
-      autoplaySpeed: 2000,
+      autoplaySpeed: 6000,
       infinite: true,
       nextArrow: `<div class="slider-next"><i class="lni-chevron-right text-white"></i></div>`,
       prevArrow: `<div class="slider-prev"><i class="lni-chevron-left text-white"></i></div>`,
