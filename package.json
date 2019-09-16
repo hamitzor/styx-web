@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "google-chrome http://localhost:3100 & google-chrome http://localhost:1337/admin & nodemon -r source-map-support/register dist/server.bundle.js",
+    "start": "nodemon -r source-map-support/register dist/server.bundle.js",
     "start-gulp": "gulp",
     "watch": "webpack --mode development",
     "build": "webpack --mode production"
