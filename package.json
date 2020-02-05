@@ -4,9 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon -r source-map-support/register dist/server.bundle.js",
+    "start": "node -r source-map-support/register dist/server.bundle.js",
+    "start-watch": "nodemon -r source-map-support/register dist/server.bundle.js",
     "start-gulp": "gulp",
-    "watch": "webpack --mode development",
+    "watch": "webpack --mode development --watch",
     "build": "webpack --mode production"
   },
   "dependencies": {

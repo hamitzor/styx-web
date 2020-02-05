@@ -17,7 +17,6 @@ const serverConfig = {
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }
     ]
   },
-  watch: true,
   watchOptions: {
     ignored: /node_modules/
   }
